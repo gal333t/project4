@@ -4,8 +4,8 @@ import {
   BreadcrumbItem,
   BreadcrumbLink,
 } from "@chakra-ui/react";
-
-import "./App.css";
+import { NavLink } from "react-router-dom";
+import Login from "./screens/Login";
 export default function Header() {
   return (
     <>
@@ -21,7 +21,8 @@ export default function Header() {
       <Breadcrumb bg="#66a8ba" separator="">
         <BreadcrumbItem>
           <BreadcrumbLink
-            href="#"
+            as={NavLink}
+            to="/"
             textAlign="center"
             color="white"
             m="5"
@@ -33,7 +34,8 @@ export default function Header() {
 
         <BreadcrumbItem>
           <BreadcrumbLink
-            href="#"
+            as={NavLink}
+            to="/about"
             textAlign="center"
             color="white"
             m="5"
@@ -42,10 +44,35 @@ export default function Header() {
             About
           </BreadcrumbLink>
         </BreadcrumbItem>
-
         <BreadcrumbItem>
           <BreadcrumbLink
-            href="#"
+            as={NavLink}
+            to="/play"
+            textAlign="center"
+            color="white"
+            m="5"
+            fontWeight="bold"
+          >
+            Play
+          </BreadcrumbLink>
+        </BreadcrumbItem>
+        <BreadcrumbItem>
+          <BreadcrumbLink
+            as={NavLink}
+            to="/scoreboard"
+            textAlign="center"
+            color="white"
+            m="5"
+            fontWeight="bold"
+          >
+            Scoreboard
+          </BreadcrumbLink>
+        </BreadcrumbItem>
+        <BreadcrumbItem>
+          <BreadcrumbLink
+            as={NavLink}
+            to="/login"
+            element={<Login />}
             textAlign="center"
             color="white"
             m="5"
