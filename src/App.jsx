@@ -3,6 +3,7 @@ import { useState, useEffect } from "react";
 import Login from "./screens/Login";
 import supabase from "./supabase";
 import Homescreen from "./screens/Homescreen";
+import Header from "./Header";
 
 export default function App() {
   const [session, setSession] = useState(null);
@@ -22,8 +23,18 @@ export default function App() {
   }, []);
 
   if (!session) {
-    return <Login />;
+    return (
+      <>
+        <Header />
+        <Login />
+      </>
+    );
   } else {
-    return <Homescreen />;
+    return (
+      <>
+        <Header />
+        <Homescreen />
+      </>
+    );
   }
 }

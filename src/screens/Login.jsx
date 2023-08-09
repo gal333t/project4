@@ -15,8 +15,6 @@ export default function Login() {
           <Card align="center" bg="#66a8ba">
             <CardBody>
               <Input
-                htmlSize={40}
-                width="auto"
                 variant="filled"
                 focusBorderColor="white"
                 _focus={{ bg: "#EDF2F7", color: "#66a8ba" }}
