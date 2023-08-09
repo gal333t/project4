@@ -2,6 +2,8 @@
 
 ### Link will go here eventually :)
 
+The website is currently not working but will be deployed [here](https://gal333t.github.io/project4/)
+
 ### Firstly, what even is BRAD?
 
 BRAD stands for Banish Recycling And Disposal Program, started by Banish a company who sell sustainable items as well as share education on sustainability. Everyday Aussies can send in their hard to recycle items, and the team of volunteers will sort and send them through to different waste streams.
