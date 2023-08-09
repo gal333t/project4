@@ -3,7 +3,7 @@ import { useState, useEffect } from "react";
 import Login from "./screens/Login";
 import supabase from "./supabase";
 import Homescreen from "./screens/Homescreen";
-import Header from "./Header";
+import Header from "./Client/Header";
 
 export default function App() {
   const [session, setSession] = useState(null);
@@ -26,7 +26,8 @@ export default function App() {
     return (
       <>
         <Header />
-        {/* <Login /> */}
+        <Login />
+        {/* <BradItem /> */}
       </>
     );
   } else {

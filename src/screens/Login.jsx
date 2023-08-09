@@ -21,6 +21,7 @@ export default function Login() {
                 value={email}
                 placeholder="Email"
                 onChange={(e) => setEmail(e.target.value)}
+                isRequired
               />
               <br />
               <Button
@@ -41,8 +42,6 @@ export default function Login() {
         <>
           <Card align="center" bg="#66a8ba">
             <Input
-              htmlSize={40}
-              width="auto"
               variant="filled"
               focusBorderColor="white"
               _focus={{ bg: "#EDF2F7", color: "#66a8ba" }}
