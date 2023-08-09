@@ -1,8 +1,6 @@
 # Can I BRAD this?
 
-### Link will go here eventually :)
-
-The website is currently not working but will be deployed [here](https://gal333t.github.io/project4/)
+### The website is currently not working but will be deployed [here](https://gal333t.github.io/project4/)
 
 ### Firstly, what even is BRAD?
 
