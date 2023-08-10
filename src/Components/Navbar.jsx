@@ -1,6 +1,6 @@
 import { Breadcrumb, BreadcrumbItem, BreadcrumbLink } from "@chakra-ui/react";
 import { NavLink } from "react-router-dom";
-import Login from "./Login";
+import supabase from "../supabase";
 
 export default function Navbar() {
   return (
@@ -73,7 +73,6 @@ export default function Navbar() {
             Logout
           </BreadcrumbLink>
         </BreadcrumbItem>
-        
       </Breadcrumb>
     </>
   );

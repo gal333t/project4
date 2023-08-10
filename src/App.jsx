@@ -39,7 +39,6 @@ export default function App() {
         <Header />
         <Routes>
           <Route path="/" element={<Homescreen />} />
-          <Route path="/login" element={<Login />} />
         </Routes>
       </>
     );

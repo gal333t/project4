@@ -1,11 +1,12 @@
 import { useState } from "react";
 import supabase from "../supabase.js";
-import { Card, CardBody, Input, Button } from "@chakra-ui/react";
+import { Card, CardBody, Input, Button, useToast } from "@chakra-ui/react";
 
 export default function Login() {
   const [email, setEmail] = useState("");
   const [magicCode, setMagicCode] = useState("");
   const [submitted, setSubmitted] = useState(false);
+  const toast = useToast();
 
   return (
     <div className="login-div">
@@ -26,11 +27,17 @@ export default function Login() {
               <Button
                 className="button"
                 color="#66a8ba"
-                onClick={(e) =>
+                onClick={(e) => {
                   supabase.auth
                     .signInWithOtp({ email })
-                    .then(() => setSubmitted(true))
-                }
+                    .then(() => setSubmitted(true));
+                  toast({
+                    description: "A Magic Code has been emailed to you.",
+                    status: "success",
+                    duration: 4000,
+                    isClosable: true,
+                  });
+                }}
               >
                 Magic Code
               </Button>
@@ -40,30 +47,31 @@ export default function Login() {
       ) : (
         <>
           <Card align="center" bg="#66a8ba">
-            <Input
-              variant="filled"
-              focusBorderColor="white"
-              _focus={{ bg: "#EDF2F7", color: "#66a8ba" }}
-              placeholder="Magic Code"
-              value={magicCode}
-              onChange={(e) => setMagicCode(e.target.value)}
-              isRequired
-            />
-            <br />
-
-            <Button
-              className="button"
-              color="#66a8ba"
-              onClick={(e) =>
-                supabase.auth.verifyOtp({
-                  type: "email",
-                  email,
-                  token: magicCode,
-                })
-              }
-            >
-              Submit
-            </Button>
+            <CardBody>
+              <Input
+                variant="filled"
+                focusBorderColor="white"
+                _focus={{ bg: "#EDF2F7", color: "#66a8ba" }}
+                placeholder="Magic Code"
+                value={magicCode}
+                onChange={(e) => setMagicCode(e.target.value)}
+                isRequired
+              />
+              <br />
+              <Button
+                className="button"
+                color="#66a8ba"
+                onClick={(e) =>
+                  supabase.auth.verifyOtp({
+                    type: "email",
+                    email,
+                    token: magicCode,
+                  })
+                }
+              >
+                Submit
+              </Button>
+            </CardBody>
           </Card>
         </>
       )}
