@@ -34,7 +34,7 @@ export default function Login() {
                   toast({
                     description: "A Magic Code has been emailed to you.",
                     status: "success",
-                    duration: 4000,
+                    duration: 3000,
                     isClosable: true,
                   });
                 }}

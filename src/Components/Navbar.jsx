@@ -1,8 +1,15 @@
-import { Breadcrumb, BreadcrumbItem, BreadcrumbLink } from "@chakra-ui/react";
+import {
+  Breadcrumb,
+  BreadcrumbItem,
+  BreadcrumbLink,
+  useToast,
+} from "@chakra-ui/react";
 import { NavLink } from "react-router-dom";
 import supabase from "../supabase";
 
 export default function Navbar() {
+  const toast = useToast();
+
   return (
     <>
       <Breadcrumb
@@ -68,7 +75,15 @@ export default function Navbar() {
             color="white"
             m="5"
             fontWeight="bold"
-            onClick={() => supabase.auth.signOut()}
+            onClick={() => {
+              supabase.auth.signOut();
+              toast({
+                description: "Successfully logged out",
+                status: "success",
+                duration: 3000,
+                isClosable: true,
+              });
+            }}
           >
             Logout
           </BreadcrumbLink>
