@@ -24,6 +24,7 @@ export default function Login() {
                 isRequired
               />
               <br />
+
               <Button
                 className="button"
                 color="#66a8ba"
@@ -34,7 +35,7 @@ export default function Login() {
                   toast({
                     description: "A Magic Code has been emailed to you.",
                     status: "success",
-                    duration: 3000,
+                    duration: 4000,
                     isClosable: true,
                   });
                 }}
