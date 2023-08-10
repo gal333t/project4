@@ -6,6 +6,7 @@ import Header from "./Components/Header";
 import Login from "./Components/Login";
 import { Routes, Route } from "react-router-dom";
 import About from "./Components/About";
+import BradItem from "./Components/BradItem";
 
 export default function App() {
   const [session, setSession] = useState(null);
@@ -32,6 +33,7 @@ export default function App() {
           <Route path="/" element={<Homescreen />} />
           <Route path="/login" element={<Login />} />
           <Route path="/about" element={<About />} />
+          <Route path="/play" element={<BradItem />} />
         </Routes>
       </>
     );
@@ -42,6 +44,7 @@ export default function App() {
         <Routes>
           <Route path="/" element={<Homescreen />} />
           <Route path="/about" element={<About />} />
+          <Route path="/play" element={<BradItem />} />
         </Routes>
       </>
     );
