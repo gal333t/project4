@@ -12,10 +12,11 @@ import {
 
 export default function BradItem() {
   const [bradItems, setBradItems] = useState([]);
+  const [bradStatus, setBradStatus] = useState([]);
 
   useEffect(() => {
     getBradItems();
-  }, []);
+  }, []); // this will need updating so it only runs on button clicks "bradStatus" in the array
 
   async function getBradItems() {
     let { data, error } = await supabase.rpc("random_image");
@@ -30,8 +31,8 @@ export default function BradItem() {
     <>
       {bradItems.map((brad) => {
         return (
-          <div className="brad-item-div">
-            <Card align="center" bg="#66a8ba" width="20%">
+          <div className="brad-item-div" m="0 auto">
+            <Card align="center" bg="#66a8ba">
               <CardBody key={brad.id}>
                 <CardHeader color="white" textAlign="center" fontSize="30px">
                   {brad.name}

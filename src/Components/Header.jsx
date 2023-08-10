@@ -17,6 +17,7 @@ export default function Header() {
           textAlign="center"
           m="10"
           fontWeight="bold"
+          fontFamily="Bitter"
         >
           Can I BRAD this?
         </Heading>
