@@ -31,7 +31,7 @@ export default function BradItem() {
     <>
       {bradItems.map((brad) => {
         return (
-          <div className="brad-item-div" m="0 auto" key={brad.id}>
+          <div className="brad-item-div"  key={brad.id}>
             <Card align="center" bg="#66a8ba">
               <CardBody>
                 <CardHeader color="white" textAlign="center" fontSize="30px">
