@@ -1,6 +1,6 @@
 # Can I BRAD this?
 
-### The website is currently not working but will be deployed [here](https://gal333t.github.io/project4/)
+### Play the game [here](https://project4-p2ro.onrender.com/)
 
 ### Firstly, what even is BRAD?
 
