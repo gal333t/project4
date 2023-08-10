@@ -6,6 +6,7 @@ export default function Login() {
   const [email, setEmail] = useState("");
   const [magicCode, setMagicCode] = useState("");
   const [submitted, setSubmitted] = useState(false);
+
   const toast = useToast();
 
   return (
@@ -20,24 +21,33 @@ export default function Login() {
                 _focus={{ bg: "#EDF2F7", color: "#66a8ba" }}
                 value={email}
                 placeholder="Email"
-                onChange={(e) => setEmail(e.target.value)}
-                isRequired
+                onChange={(e) => {
+                  setEmail(e.target.value);
+                }}
               />
               <br />
-
               <Button
                 className="button"
                 color="#66a8ba"
                 onClick={(e) => {
-                  supabase.auth
-                    .signInWithOtp({ email })
-                    .then(() => setSubmitted(true));
-                  toast({
-                    description: "A Magic Code has been emailed to you.",
-                    status: "success",
-                    duration: 4000,
-                    isClosable: true,
-                  });
+                  if (email.length <= 0) {
+                    toast({
+                      description: "Email cannot be blank",
+                      status: "error",
+                      duration: 3000,
+                      isClosable: true,
+                    });
+                  } else {
+                    supabase.auth
+                      .signInWithOtp({ email })
+                      .then(() => setSubmitted(true));
+                    toast({
+                      description: "A Magic Code has been emailed to you.",
+                      status: "success",
+                      duration: 3000,
+                      isClosable: true,
+                    });
+                  }
                 }}
               >
                 Magic Code
@@ -62,13 +72,21 @@ export default function Login() {
               <Button
                 className="button"
                 color="#66a8ba"
-                onClick={(e) =>
-                  supabase.auth.verifyOtp({
-                    type: "email",
-                    email,
-                    token: magicCode,
-                  })
-                }
+                onClick={(e) => {
+                  if (magicCode.length <= 0) {
+                    toast({
+                      description: "Magic Code cannot be blank",
+                      status: "error",
+                      duration: 3000,
+                      isClosable: true,
+                    });
+                    supabase.auth.verifyOtp({
+                      type: "email",
+                      email,
+                      token: magicCode,
+                    });
+                  }
+                }}
               >
                 Submit
               </Button>
