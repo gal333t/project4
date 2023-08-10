@@ -4,6 +4,7 @@ import supabase from "./supabase";
 import Homescreen from "./Components/Homescreen";
 import Header from "./Components/Header";
 import Login from "./Components/Login";
+import { Routes, Route } from "react-router-dom";
 
 export default function App() {
   const [session, setSession] = useState(null);
@@ -26,15 +27,20 @@ export default function App() {
     return (
       <>
         <Header />
-        {/* <Login /> */}
-        <Homescreen />
+        <Routes>
+          <Route path="/" element={<Homescreen />} />
+          <Route path="/login" element={<Login />} />
+        </Routes>
       </>
     );
   } else {
     return (
       <>
         <Header />
-        <Homescreen />
+        <Routes>
+          <Route path="/" element={<Homescreen />} />
+          <Route path="/login" element={<Login />} />
+        </Routes>
       </>
     );
   }

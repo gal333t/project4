@@ -54,7 +54,6 @@ export default function Navbar() {
           <BreadcrumbLink
             as={NavLink}
             to="/login"
-            element={<Login />}
             textAlign="center"
             color="white"
             m="5"
@@ -74,6 +73,7 @@ export default function Navbar() {
             Logout
           </BreadcrumbLink>
         </BreadcrumbItem>
+        
       </Breadcrumb>
     </>
   );
