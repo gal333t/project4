@@ -1,9 +1,9 @@
 import "./App.css";
 import { useState, useEffect } from "react";
-import Login from "./screens/Login";
 import supabase from "./supabase";
-import Homescreen from "./screens/Homescreen";
-import Header from "./Client/Header";
+import Homescreen from "./Components/Homescreen";
+import Header from "./Components/Header";
+import Login from "./Components/Login";
 
 export default function App() {
   const [session, setSession] = useState(null);
@@ -26,8 +26,8 @@ export default function App() {
     return (
       <>
         <Header />
-        <Login />
-        {/* <BradItem /> */}
+        {/* <Login /> */}
+        <Homescreen />
       </>
     );
   } else {

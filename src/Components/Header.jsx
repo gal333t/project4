@@ -5,8 +5,7 @@ import {
   BreadcrumbLink,
 } from "@chakra-ui/react";
 import { NavLink } from "react-router-dom";
-import Login from "../screens/Login";
-import supabase from "../supabase";
+import Login from "./Login";
 
 export default function Header() {
   return (
@@ -65,32 +64,7 @@ export default function Header() {
               Play
             </BreadcrumbLink>
           </BreadcrumbItem>
-          <BreadcrumbItem>
-            <BreadcrumbLink
-              as={NavLink}
-              to="/scoreboard"
-              textAlign="center"
-              color="white"
-              m="5"
-              fontWeight="bold"
-            >
-              Scoreboard
-            </BreadcrumbLink>
-          </BreadcrumbItem>
-          {/* if not logged in, add below component for Login  ?  <BreadcrumbItem>
-            <BreadcrumbLink
-              as={NavLink}
-              to="/login"
-              element={<Login />}
-              textAlign="center"
-              color="white"
-              m="5"
-              fontWeight="bold"
-              onClick={()=> supabase.auth.signOut()}
-            >
-              Logout
-            </BreadcrumbLink>
-          </BreadcrumbItem> */}
+
           <BreadcrumbItem>
             <BreadcrumbLink
               as={NavLink}
@@ -102,6 +76,17 @@ export default function Header() {
               fontWeight="bold"
             >
               Login
+            </BreadcrumbLink>
+          </BreadcrumbItem>
+          <BreadcrumbItem>
+            <BreadcrumbLink
+              textAlign="center"
+              color="white"
+              m="5"
+              fontWeight="bold"
+              onClick={() => supabase.auth.signOut()}
+            >
+              Logout
             </BreadcrumbLink>
           </BreadcrumbItem>
         </Breadcrumb>

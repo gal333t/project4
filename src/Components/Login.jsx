@@ -1,7 +1,6 @@
 import { useState } from "react";
 import supabase from "../supabase.js";
-import { Card, CardHeader, CardBody, Input, Button } from "@chakra-ui/react";
-import "./Login.css";
+import { Card, CardBody, Input, Button } from "@chakra-ui/react";
 
 export default function Login() {
   const [email, setEmail] = useState("");
