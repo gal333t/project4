@@ -13,13 +13,12 @@ import {
 
 export default function BradItem() {
   const [bradItems, setBradItems] = useState([]);
-  const [bradStatus, setBradStatus] = useState();
   const [count, setCount] = useState(0);
   const [answer, setAnswer] = useState(); // how to set this up so it doesn't run turnery statement for text on screen..
 
   useEffect(() => {
     getBradItems();
-  }, []); // this will need updating so it only runs on button clicks "bradStatus" in the array
+  }, []);
 
   async function getBradItems() {
     let { data } = await supabase.rpc("random_image");
@@ -67,8 +66,6 @@ export default function BradItem() {
                     variant="solid"
                     color="#66a8ba"
                     onClick={() => {
-                      // setBradStatus(true);
-                      // console.log(bradStatus);
                       determineBradStatus(brad.id, true);
                     }}
                   >
@@ -78,8 +75,6 @@ export default function BradItem() {
                     variant="solid"
                     color="#66a8ba"
                     onClick={() => {
-                      // setBradStatus(false);
-                      // console.log(bradStatus);
                       determineBradStatus(brad.id, false);
                     }}
                   >
