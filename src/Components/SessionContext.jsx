@@ -22,6 +22,11 @@ const SessionContextComponent = ({ children }) => {
     return () => subscription.unsubscribe();
   }, []);
 
+  useEffect(async () => {
+    // not sure how to store User info when storing sessions, to set username and userScore on login...
+    const { data } = await supabase.from("Users").select("*").eq("email");
+  });
+
   return (
     <SessionContext.Provider
       value={{ session, username, setUsername, userScore, setUserScore }}

@@ -16,6 +16,7 @@ import { useContext } from "react";
 export default function BradItem() {
   const [bradItems, setBradItems] = useState([]);
   const [count, setCount] = useState(0);
+  const [userAnswer, setUserAnswer] = useState();
 
   const { username, setUsername, userScore, setUserScore } =
     useContext(SessionContext);
@@ -36,13 +37,19 @@ export default function BradItem() {
       .eq("id", itemID);
     let datsbaseStatus = data[0].BRAD;
     if (datsbaseStatus == status) {
-      // if(username) { setStoredCount(storedCount + 1)} else { setCount(count + 1)}
-      setCount(count + 1);
-      getBradItems();
-      setUserScore("correct 🎉");
+      if (username !== null) {
+        setUserScore(userScore + 1);
+        getBradItems();
+        setUserAnswer("correct 🎉");
+      } else {
+        setCount(count + 1);
+        getBradItems();
+        setUserAnswer("correct 🎉");
+        console.log(username);
+      }
     } else {
       getBradItems();
-      setUserScore("incorrect 😔");
+      setUserAnswer("incorrect 😔");
     }
   }
 
@@ -94,17 +101,17 @@ export default function BradItem() {
                 </ButtonGroup>
               </CardFooter>
               <CardBody>
-                {userScore && (
+                {userAnswer && (
                   <Text
                     fontWeight="semibold"
                     fontSize="18px"
                     color="white"
                     textAlign="center"
                   >
-                    Your guess was {userScore}
+                    Your guess was {userAnswer}
                   </Text>
                 )}
-                {/* {storedCount ? (
+                {userScore ? (
                   <Text
                     p="3px"
                     fontWeight="semibold"
@@ -112,7 +119,7 @@ export default function BradItem() {
                     color="white"
                     textAlign="center"
                   >
-                    Your overall score is: {storedCount}
+                    Your overall score is: {userScore}
                   </Text>
                 ) : (
                   <Text
@@ -124,8 +131,8 @@ export default function BradItem() {
                   >
                     Current score is: {count}
                   </Text>
-                )} */}
-                <Text
+                )}
+                {/* <Text
                   p="3px"
                   fontWeight="semibold"
                   fontSize="18px"
@@ -133,7 +140,7 @@ export default function BradItem() {
                   textAlign="center"
                 >
                   Current score is: {count}
-                </Text>
+                </Text> */}
               </CardBody>
             </Card>
           </div>
