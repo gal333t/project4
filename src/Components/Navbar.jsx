@@ -3,13 +3,16 @@ import {
   BreadcrumbItem,
   BreadcrumbLink,
   useToast,
+  Text,
 } from "@chakra-ui/react";
-import { NavLink } from "react-router-dom";
+import { useContext } from "react";
+import { NavLink, Link } from "react-router-dom";
 import supabase from "../supabase";
+import { SessionContext } from "./SessionContext";
 
 export default function Navbar() {
   const toast = useToast();
-
+  const session = useContext(SessionContext);
   return (
     <>
       <Breadcrumb
@@ -57,37 +60,42 @@ export default function Navbar() {
           </BreadcrumbLink>
         </BreadcrumbItem>
 
-        <BreadcrumbItem>
-          <BreadcrumbLink
-            as={NavLink}
-            to="/login"
-            textAlign="center"
-            color="white"
-            m="5"
-            fontWeight="bold"
-          >
-            Login
-          </BreadcrumbLink>
-        </BreadcrumbItem>
-        <BreadcrumbItem>
-          <BreadcrumbLink
-            textAlign="center"
-            color="white"
-            m="5"
-            fontWeight="bold"
-            onClick={() => {
-              supabase.auth.signOut();
-              toast({
-                description: "Successfully logged out",
-                status: "success",
-                duration: 3000,
-                isClosable: true,
-              });
-            }}
-          >
-            Logout
-          </BreadcrumbLink>
-        </BreadcrumbItem>
+        {!session ? (
+          <BreadcrumbItem>
+            <BreadcrumbLink
+              as={NavLink}
+              to="/login"
+              textAlign="center"
+              color="white"
+              m="5"
+              fontWeight="bold"
+            >
+              Login
+            </BreadcrumbLink>
+          </BreadcrumbItem>
+        ) : (
+          <BreadcrumbItem>
+            <BreadcrumbLink
+              as={Link}
+              to="/"
+              textAlign="center"
+              color="white"
+              m="5"
+              fontWeight="bold"
+              onClick={() => {
+                supabase.auth.signOut();
+                toast({
+                  description: "Successfully logged out",
+                  status: "success",
+                  duration: 3000,
+                  isClosable: true,
+                });
+              }}
+            >
+              Logout
+            </BreadcrumbLink>
+          </BreadcrumbItem>
+        )}
       </Breadcrumb>
     </>
   );

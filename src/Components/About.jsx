@@ -1,7 +1,11 @@
 import { Card, CardBody, CardHeader, Link } from "@chakra-ui/react";
 import { ExternalLinkIcon } from "@chakra-ui/icons";
+import { SessionContext } from "./SessionContext";
+import { useContext } from "react";
 
 export default function About() {
+  const session = useContext(SessionContext);
+
   return (
     <div className="about-div">
       <Card
