@@ -39,10 +39,6 @@ export default function BradItem() {
     }
   }
 
-  // useEffect(){
-
-  // },[bradStatus]
-
   return (
     <>
       {bradItems.map((brad) => {

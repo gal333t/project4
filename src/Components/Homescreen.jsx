@@ -14,7 +14,9 @@ export default function Homescreen() {
             to do is decide whether or not an item can be recycled.
           </Text>
         </Flex>
-        <Text>Scoreboard under here in Scoreboard component eventually</Text>
+        <Text p="16">
+          Scoreboard under here in Scoreboard component eventually
+        </Text>
       </Box>
     </>
   );
