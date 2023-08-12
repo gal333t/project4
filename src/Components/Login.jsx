@@ -7,8 +7,24 @@ export default function Login() {
   const [email, setEmail] = useState("");
   const [magicCode, setMagicCode] = useState("");
   const [submitted, setSubmitted] = useState(false);
+  const [findUser, setFindUser] = useState("");
 
   const toast = useToast();
+
+  async function determineUser(emailInput) {
+    // need to change method to not error if email doesn't exist
+    const { data } = await supabase
+      .from("Users")
+      .select("email")
+      .eq("email", emailInput);
+    console.log(data);
+    if (data.length !== 0) {
+      console.log("email matches one with account already");
+    } else {
+      await supabase.from("Users").insert({ email: emailInput }); // not working..
+      console.log("user does not exist, need to create new user in table here");
+    }
+  }
 
   return (
     <div className="login-div">
@@ -48,6 +64,7 @@ export default function Login() {
                       duration: 3000,
                       isClosable: true,
                     });
+                    determineUser(email);
                   }
                 }}
               >
