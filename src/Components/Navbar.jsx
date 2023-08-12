@@ -26,7 +26,6 @@ export default function Navbar() {
           <BreadcrumbLink
             as={NavLink}
             to="/"
-            textAlign="center"
             color="white"
             m="5"
             fontWeight="bold"
@@ -39,7 +38,6 @@ export default function Navbar() {
           <BreadcrumbLink
             as={NavLink}
             to="/about"
-            textAlign="center"
             color="white"
             m="5"
             fontWeight="bold"
@@ -51,7 +49,6 @@ export default function Navbar() {
           <BreadcrumbLink
             as={NavLink}
             to="/play"
-            textAlign="center"
             color="white"
             m="5"
             fontWeight="bold"
@@ -65,7 +62,6 @@ export default function Navbar() {
             <BreadcrumbLink
               as={NavLink}
               to="/login"
-              textAlign="center"
               color="white"
               m="5"
               fontWeight="bold"
@@ -78,7 +74,6 @@ export default function Navbar() {
             <BreadcrumbLink
               as={Link}
               to="/"
-              textAlign="center"
               color="white"
               m="5"
               fontWeight="bold"
