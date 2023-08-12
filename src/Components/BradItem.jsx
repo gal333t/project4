@@ -14,6 +14,7 @@ import {
 export default function BradItem() {
   const [bradItems, setBradItems] = useState([]);
   const [count, setCount] = useState(0);
+  const [storedCount, setStoredCount] = useState(0); // when updated, add int() so number stored is integar
   const [answer, setAnswer] = useState(); // how to set this up so it doesn't run turnery statement for text on screen..
 
   useEffect(() => {
@@ -32,6 +33,7 @@ export default function BradItem() {
       .eq("id", itemID);
     let datsbaseStatus = data[0].BRAD;
     if (datsbaseStatus == status) {
+      // if(username) { setStoredCount(storedCount + 1)} else { setCount(count + 1)}
       setCount(count + 1);
       getBradItems();
       setAnswer("correct");
@@ -89,6 +91,27 @@ export default function BradItem() {
                     textAlign="center"
                   >
                     Your guess was {answer}
+                  </Text>
+                )}
+                {storedCount ? (
+                  <Text
+                    p="3px"
+                    fontWeight="semibold"
+                    fontSize="18px"
+                    color="white"
+                    textAlign="center"
+                  >
+                    Your overall score is: {storedCount}
+                  </Text>
+                ) : (
+                  <Text
+                    p="3px"
+                    fontWeight="semibold"
+                    fontSize="18px"
+                    color="white"
+                    textAlign="center"
+                  >
+                    Current score is: {count}
                   </Text>
                 )}
                 <Text
