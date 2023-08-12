@@ -34,8 +34,10 @@ export default function BradItem() {
     if (datsbaseStatus == status) {
       setCount(count + 1);
       getBradItems();
+      setAnswer("correct");
     } else {
       getBradItems();
+      setAnswer("incorrect");
     }
   }
 
@@ -78,13 +80,24 @@ export default function BradItem() {
                   </Button>
                 </ButtonGroup>
               </CardFooter>
-              <CardBody>
-                {/* {!answer ? (
-                  <Text fontWeight="semibold">Your answer was correct! 👌🏼</Text>
-                ) : (
-                  <Text fontWeight="semibold">Your answer was wrong 😔</Text>
-                )} */}
-                <Text fontWeight="semibold" fontSize="18px" color="white">
+              <CardBody p="5px">
+                {answer && (
+                  <Text
+                    fontWeight="semibold"
+                    fontSize="18px"
+                    color="white"
+                    textAlign="center"
+                  >
+                    Your guess was {answer}
+                  </Text>
+                )}
+                <Text
+                  p="3px"
+                  fontWeight="semibold"
+                  fontSize="18px"
+                  color="white"
+                  textAlign="center"
+                >
                   Current score is: {count}
                 </Text>
               </CardBody>
