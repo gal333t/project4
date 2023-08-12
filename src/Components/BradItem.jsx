@@ -8,13 +8,14 @@ import {
   Image,
   Button,
   ButtonGroup,
+  Text,
 } from "@chakra-ui/react";
 
 export default function BradItem() {
   const [bradItems, setBradItems] = useState([]);
-  const [bradStatus, setBradStatus] = useState([]);
-  const [itemID, setItemID] = useState(0);
+  const [bradStatus, setBradStatus] = useState();
   const [count, setCount] = useState(0);
+  const [answer, setAnswer] = useState(); // how to set this up so it doesn't run turnery statement for text on screen..
 
   useEffect(() => {
     getBradItems();
@@ -25,20 +26,23 @@ export default function BradItem() {
     setBradItems(data);
   }
 
-  async function determineBradStatus(status) {
-    // const { data } = await supabase.from("BRAD").select("BRAD");
-    // need to find by ID from supabase
-    // SELECT "BRAD" from BRAD WHERE ID = itemID
-
-    if (status == statusFromTable) {
-      console.log("true");
-      // getBradItems()
-      // setCount = count + 1
+  async function determineBradStatus(itemID, status) {
+    const { data } = await supabase
+      .from("BRAD")
+      .select("BRAD")
+      .eq("id", itemID);
+    let datsbaseStatus = data[0].BRAD;
+    if (datsbaseStatus == status) {
+      setCount(count + 1);
+      getBradItems();
     } else {
-      console.log("false");
-      // getBradItems() ?
+      getBradItems();
     }
   }
+
+  // useEffect(){
+
+  // },[bradStatus]
 
   return (
     <>
@@ -46,7 +50,7 @@ export default function BradItem() {
         return (
           <div className="brad-item-div" key={brad.id}>
             <Card align="center" bg="#66a8ba">
-              <CardBody>
+              <CardBody align="center">
                 <CardHeader color="white" textAlign="center" fontSize="30px">
                   {brad.name}
                 </CardHeader>
@@ -63,9 +67,9 @@ export default function BradItem() {
                     variant="solid"
                     color="#66a8ba"
                     onClick={() => {
-                      setItemID(brad.id);
-                      setBradStatus(true);
-                      determineBradStatus(bradStatus);
+                      // setBradStatus(true);
+                      // console.log(bradStatus);
+                      determineBradStatus(brad.id, true);
                     }}
                   >
                     YES
@@ -74,15 +78,22 @@ export default function BradItem() {
                     variant="solid"
                     color="#66a8ba"
                     onClick={() => {
-                      console.log("NO clicked");
+                      // setBradStatus(false);
+                      // console.log(bradStatus);
+                      determineBradStatus(brad.id, false);
                     }}
                   >
                     NO
                   </Button>
                 </ButtonGroup>
               </CardFooter>
-              <CardBody fontWeight="semibold">
-                Your current score is: {count}
+              <CardBody>
+                {/* {!answer ? (
+                  <Text fontWeight="semibold">Your answer was correct! 👌🏼</Text>
+                ) : (
+                  <Text fontWeight="semibold">Your answer was wrong 😔</Text>
+                )} */}
+                <Text fontWeight="semibold">Current score is: {count}</Text>
               </CardBody>
             </Card>
           </div>
