@@ -19,11 +19,7 @@ export default function BradItem() {
   }, []); // this will need updating so it only runs on button clicks "bradStatus" in the array
 
   async function getBradItems() {
-    let { data, error } = await supabase.rpc("random_image");
-    if (error) console.error(error);
-    else console.log(data);
-
-    // const { data } = await supabase.from("BRAD").select("*");
+    let { data } = await supabase.rpc("random_image");
     setBradItems(data);
   }
 
@@ -31,7 +27,7 @@ export default function BradItem() {
     <>
       {bradItems.map((brad) => {
         return (
-          <div className="brad-item-div"  key={brad.id}>
+          <div className="brad-item-div" key={brad.id}>
             <Card align="center" bg="#66a8ba">
               <CardBody>
                 <CardHeader color="white" textAlign="center" fontSize="30px">
@@ -46,10 +42,22 @@ export default function BradItem() {
               </CardBody>
               <CardFooter>
                 <ButtonGroup spacing="2">
-                  <Button variant="solid" color="#66a8ba">
+                  <Button
+                    variant="solid"
+                    color="#66a8ba"
+                    onClick={() => {
+                      console.log("YES clicked");
+                    }}
+                  >
                     YES
                   </Button>
-                  <Button variant="solid" color="#66a8ba">
+                  <Button
+                    variant="solid"
+                    color="#66a8ba"
+                    onClick={() => {
+                      console.log("NO clicked");
+                    }}
+                  >
                     NO
                   </Button>
                 </ButtonGroup>
