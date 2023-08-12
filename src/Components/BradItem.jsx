@@ -88,7 +88,9 @@ export default function BradItem() {
                 ) : (
                   <Text fontWeight="semibold">Your answer was wrong 😔</Text>
                 )} */}
-                <Text fontWeight="semibold">Current score is: {count}</Text>
+                <Text fontWeight="semibold" fontSize="18px" color="white">
+                  Current score is: {count}
+                </Text>
               </CardBody>
             </Card>
           </div>
