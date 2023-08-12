@@ -1,4 +1,3 @@
-import BradItem from "./BradItem";
 import { Text, Box, Flex } from "@chakra-ui/react";
 
 export default function Homescreen() {
