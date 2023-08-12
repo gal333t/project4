@@ -102,11 +102,3 @@ export default function Login() {
     </div>
   );
 }
-
-// {
-//   const { data, error } = await supabase.auth.verifyOtp({
-//     email,
-//     token,
-//     type: "email",
-//   });
-// }
