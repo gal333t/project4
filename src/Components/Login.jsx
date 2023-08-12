@@ -1,6 +1,7 @@
 import { useState } from "react";
 import supabase from "../supabase.js";
 import { Card, CardBody, Input, Button, useToast } from "@chakra-ui/react";
+import { Link } from "react-router-dom";
 
 export default function Login() {
   const [email, setEmail] = useState("");
@@ -72,7 +73,9 @@ export default function Login() {
               <Button
                 className="button"
                 color="#66a8ba"
-                onClick={(e) => {
+                as={Link}
+                to="/"
+                onClick={() => {
                   if (magicCode.length <= 0) {
                     toast({
                       description: "Magic Code cannot be blank",
@@ -86,9 +89,7 @@ export default function Login() {
                       email,
                       token: magicCode,
                     });
-                    console.log(
-                      "Logged in successfully, a function will be added later.. :) "
-                    );
+                    console.log("Logged in successfully");
                   }
                 }}
               >
@@ -101,3 +102,11 @@ export default function Login() {
     </div>
   );
 }
+
+// {
+//   const { data, error } = await supabase.auth.verifyOtp({
+//     email,
+//     token,
+//     type: "email",
+//   });
+// }
