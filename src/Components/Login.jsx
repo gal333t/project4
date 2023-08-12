@@ -21,7 +21,9 @@ export default function Login() {
     if (data.length !== 0) {
       console.log("email matches one with account already");
     } else {
-      await supabase.from("Users").insert({ email: emailInput }); // not working..
+      const { data } = await supabase
+        .from("Users")
+        .insert({ email: emailInput }); // not working.. trying const {data} to match docs
       console.log("user does not exist, need to create new user in table here");
     }
   }

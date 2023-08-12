@@ -1,9 +1,11 @@
 import { Card, CardBody, Input, Button, useToast } from "@chakra-ui/react";
 import { useState } from "react";
+import { SessionContext } from "./SessionContext";
+import { useContext } from "react";
 
 export default function Username() {
-  const [username, setUsername] = useState("");
   const toast = useToast();
+  const { username, setUsername } = useContext(SessionContext);
 
   return (
     <>
@@ -16,7 +18,7 @@ export default function Username() {
               _focus={{ bg: "#EDF2F7", color: "#66a8ba" }}
               placeholder="Username"
               onChange={(e) => setUsername(e.target.value)}
-            ></Input>
+            />
             <Button
               className="button"
               color="#66a8ba"

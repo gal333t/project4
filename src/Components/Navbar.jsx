@@ -12,7 +12,7 @@ import { SessionContext } from "./SessionContext";
 
 export default function Navbar() {
   const toast = useToast();
-  const session = useContext(SessionContext);
+  const { session } = useContext(SessionContext);
   return (
     <>
       <Breadcrumb
