@@ -82,7 +82,7 @@ export default function BradItem() {
                   </Button>
                 </ButtonGroup>
               </CardFooter>
-              <CardBody p="5px">
+              <CardBody>
                 {answer && (
                   <Text
                     fontWeight="semibold"
@@ -93,7 +93,7 @@ export default function BradItem() {
                     Your guess was {answer}
                   </Text>
                 )}
-                {storedCount ? (
+                {/* {storedCount ? (
                   <Text
                     p="3px"
                     fontWeight="semibold"
@@ -113,7 +113,7 @@ export default function BradItem() {
                   >
                     Current score is: {count}
                   </Text>
-                )}
+                )} */}
                 <Text
                   p="3px"
                   fontWeight="semibold"
