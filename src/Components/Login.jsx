@@ -86,6 +86,9 @@ export default function Login() {
                       token: magicCode,
                     });
                   }
+                  console.log(
+                    "Logged in successfully, a function will be added later.. :) "
+                  );
                 }}
               >
                 Submit

@@ -13,6 +13,8 @@ import {
 export default function BradItem() {
   const [bradItems, setBradItems] = useState([]);
   const [bradStatus, setBradStatus] = useState([]);
+  const [itemID, setItemID] = useState(0);
+  const [count, setCount] = useState(0);
 
   useEffect(() => {
     getBradItems();
@@ -21,6 +23,21 @@ export default function BradItem() {
   async function getBradItems() {
     let { data } = await supabase.rpc("random_image");
     setBradItems(data);
+  }
+
+  async function determineBradStatus(status) {
+    // const { data } = await supabase.from("BRAD").select("BRAD");
+    // need to find by ID from supabase
+    // SELECT "BRAD" from BRAD WHERE ID = itemID
+
+    if (status == statusFromTable) {
+      console.log("true");
+      // getBradItems()
+      // setCount = count + 1
+    } else {
+      console.log("false");
+      // getBradItems() ?
+    }
   }
 
   return (
@@ -46,7 +63,9 @@ export default function BradItem() {
                     variant="solid"
                     color="#66a8ba"
                     onClick={() => {
-                      console.log("YES clicked");
+                      setItemID(brad.id);
+                      setBradStatus(true);
+                      determineBradStatus(bradStatus);
                     }}
                   >
                     YES
@@ -62,6 +81,9 @@ export default function BradItem() {
                   </Button>
                 </ButtonGroup>
               </CardFooter>
+              <CardBody fontWeight="semibold">
+                Your current score is: {count}
+              </CardBody>
             </Card>
           </div>
         );
