@@ -36,10 +36,10 @@ export default function BradItem() {
       // if(username) { setStoredCount(storedCount + 1)} else { setCount(count + 1)}
       setCount(count + 1);
       getBradItems();
-      setAnswer("correct");
+      setAnswer("correct 🎉");
     } else {
       getBradItems();
-      setAnswer("incorrect");
+      setAnswer("incorrect 😔");
     }
   }
 
@@ -121,7 +121,7 @@ export default function BradItem() {
                   color="white"
                   textAlign="center"
                 >
-                  Current score is: {count}!
+                  Current score is: {count}
                 </Text>
               </CardBody>
             </Card>
