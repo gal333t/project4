@@ -25,28 +25,15 @@ export default function App() {
     return () => subscription.unsubscribe();
   }, []);
 
-  if (!session) {
-    return (
-      <>
-        <Header />
-        <Routes>
-          <Route path="/" element={<Homescreen />} />
-          <Route path="/login" element={<Login />} />
-          <Route path="/about" element={<About />} />
-          <Route path="/play" element={<BradItem />} />
-        </Routes>
-      </>
-    );
-  } else {
-    return (
-      <>
-        <Header />
-        <Routes>
-          <Route path="/" element={<Homescreen />} />
-          <Route path="/about" element={<About />} />
-          <Route path="/play" element={<BradItem />} />
-        </Routes>
-      </>
-    );
-  }
+  return (
+    <>
+      <Header />
+      <Routes>
+        <Route path="/" element={<Homescreen />} />
+        <Route path="/login" element={<Login />} />
+        <Route path="/about" element={<About />} />
+        <Route path="/play" element={<BradItem />} />
+      </Routes>
+    </>
+  );
 }
