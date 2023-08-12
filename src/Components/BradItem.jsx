@@ -121,7 +121,7 @@ export default function BradItem() {
                   color="white"
                   textAlign="center"
                 >
-                  Current score is: {count}
+                  Current score is: {count}!
                 </Text>
               </CardBody>
             </Card>
