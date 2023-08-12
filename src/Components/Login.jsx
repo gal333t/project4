@@ -80,15 +80,16 @@ export default function Login() {
                       duration: 3000,
                       isClosable: true,
                     });
+                  } else {
                     supabase.auth.verifyOtp({
                       type: "email",
                       email,
                       token: magicCode,
                     });
+                    console.log(
+                      "Logged in successfully, a function will be added later.. :) "
+                    );
                   }
-                  console.log(
-                    "Logged in successfully, a function will be added later.. :) "
-                  );
                 }}
               >
                 Submit
