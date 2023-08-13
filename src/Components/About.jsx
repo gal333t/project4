@@ -54,11 +54,13 @@ export default function About() {
         <CardBody textAlign="center" fontSize="20px" p="7px">
           Hello, I'm Galit! I've been a volunteer with BRAD for over 2 years
           now, and I absolutely love it! We go and sort through parcels,
-          allocating different items in their respective waste streams. But
+          allocating different items into their respective waste streams. And
           sometimes we get items that aren't able to be recycled, even by BRAD.
           This website was created as part of my final project in a software
           engineering course, I wanted to create something fun and educational
-          that was centered on a topic I am passionate about. More on me{" "}
+          that was centered on a topic I am passionate about. Hopefully everyone
+          can learn something new and it encourages people to participate in
+          BRAD. More on me{" "}
           <Link href="https://www.galitmoss.com/" isExternal>
             here
             <ExternalLinkIcon mx="5px" />
