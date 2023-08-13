@@ -4,6 +4,7 @@ import {
   BreadcrumbLink,
   useToast,
   useColorMode,
+  useColorModeValue,
   IconButton,
 } from "@chakra-ui/react";
 import { MoonIcon, SunIcon } from "@chakra-ui/icons";
@@ -71,7 +72,12 @@ export default function Navbar() {
             </BreadcrumbLink>
           </BreadcrumbItem>
         )}
-        <IconButton onClick={toggleColorMode}>
+        <IconButton
+          bg="#66a8ba"
+          onClick={toggleColorMode}
+          _hover={{ opacity: "40%" }}
+          _active={{ opacity: "40%" }}
+        >
           {colorMode === "light" ? <MoonIcon /> : <SunIcon />}
         </IconButton>
       </Breadcrumb>

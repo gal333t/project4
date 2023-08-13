@@ -1,12 +1,21 @@
-import { Card, CardBody, CardHeader, Link, Divider } from "@chakra-ui/react";
+import {
+  Card,
+  CardBody,
+  CardHeader,
+  Link,
+  Divider,
+  useColorModeValue,
+} from "@chakra-ui/react";
 import { ExternalLinkIcon } from "@chakra-ui/icons";
 
 export default function About() {
+  const text = useColorModeValue("#35606b", "#66a8ba");
+
   return (
     <div className="about-div">
       <Card
         align="center"
-        color="#66a8ba"
+        color={text}
         variant="unstyled"
         m="10"
         fontWeight="semibold"
