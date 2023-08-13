@@ -43,6 +43,13 @@ export default function About() {
           change. After each guess, a new option will render for you to decide,
           can you BRAD this?
         </CardBody>
+        <CardBody textAlign="center" fontSize="20px" p="7px">
+          For more info on BRAD click{" "}
+          <Link href="https://banish.com.au/pages/recycling-program" isExternal>
+            here
+            <ExternalLinkIcon mx="7px" />
+          </Link>
+        </CardBody>
         <CardHeader fontSize="30px" p="7px">
           About Me
         </CardHeader>
@@ -53,15 +60,13 @@ export default function About() {
           sometimes we get items that aren't able to be recycled, even by BRAD.
           This website was created as part of my final project in a software
           engineering course, I wanted to create something fun and educational
-          that was centered on a topic I am passionate about.
-        </CardBody>
-        <CardBody textAlign="center" fontSize="20px" p="7px">
-          For more info on BRAD click{" "}
-          <Link href="https://banish.com.au/pages/recycling-program" isExternal>
+          that was centered on a topic I am passionate about. More on me{" "}
+          <Link href="https://www.galitmoss.com/" isExternal>
             here
             <ExternalLinkIcon mx="7px" />
           </Link>
         </CardBody>
+
         <CardHeader fontSize="26px" p="7px">
           Disclaimer
         </CardHeader>

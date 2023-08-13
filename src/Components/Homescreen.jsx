@@ -10,7 +10,8 @@ export default function Homescreen() {
           </Text>
           <Text fontSize="20px" color="#66a8ba">
             BRAD is a recycling program started by Banish. To play, all you need
-            to do is decide whether or not an item can be recycled.
+            to do is decide whether or not an item can be recycled by the
+            program.
           </Text>
         </Flex>
         <Text p="16">
