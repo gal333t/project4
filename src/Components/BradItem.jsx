@@ -46,7 +46,6 @@ export default function BradItem() {
         setCount(count + 1);
         getBradItems();
         setUserAnswer("correct 🎉");
-        console.log(username);
       }
     } else {
       getBradItems();

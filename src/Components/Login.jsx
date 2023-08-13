@@ -1,6 +1,13 @@
 import { useState } from "react";
 import supabase from "../supabase.js";
-import { Card, CardBody, Input, Button, useToast } from "@chakra-ui/react";
+import {
+  Card,
+  CardBody,
+  Input,
+  Button,
+  useToast,
+  useColorModeValue,
+} from "@chakra-ui/react";
 import { Link } from "react-router-dom";
 
 export default function Login() {
@@ -9,6 +16,8 @@ export default function Login() {
   const [submitted, setSubmitted] = useState(false);
 
   const toast = useToast();
+  const bg = useColorModeValue("white", "white");
+  const txtColor = useColorModeValue("black", "black");
 
   async function determineUser(emailInput) {
     // need to change method to not error if email doesn't exist
@@ -36,8 +45,12 @@ export default function Login() {
             <CardBody>
               <Input
                 variant="filled"
+                bg={bg}
+                color={txtColor}
                 focusBorderColor="white"
-                _focus={{ bg: "#EDF2F7", color: "#66a8ba" }}
+                _focus={{ bg: bg, color: txtColor }}
+                _placeholder={{ color: "blackAlpha.400" }}
+                _hover={{ bg: bg, color: txtColor }}
                 value={email}
                 placeholder="Email"
                 onChange={(e) => {
@@ -47,7 +60,9 @@ export default function Login() {
               <br />
               <Button
                 className="button"
-                color="#66a8ba"
+                color={"#66a8ba"}
+                bg={bg}
+                _hover={{ bg: "whiteAlpha.800 " }}
                 onClick={(e) => {
                   if (email.length <= 0) {
                     toast({
@@ -80,9 +95,12 @@ export default function Login() {
           <Card align="center" bg="#66a8ba">
             <CardBody>
               <Input
-                variant="filled"
+                bg={bg}
+                color={txtColor}
                 focusBorderColor="white"
-                _focus={{ bg: "#EDF2F7", color: "#66a8ba" }}
+                _focus={{ bg: bg, color: txtColor }}
+                _hover={{ bg: bg, color: txtColor }}
+                _placeholder={{ color: "blackAlpha.400" }}
                 placeholder="Magic Code"
                 value={magicCode}
                 onChange={(e) => setMagicCode(e.target.value)}
@@ -91,7 +109,9 @@ export default function Login() {
               <br />
               <Button
                 className="button"
-                color="#66a8ba"
+                color={"#66a8ba"}
+                bg={bg}
+                _hover={{ bg: "whiteAlpha.800 " }}
                 as={Link}
                 to="/"
                 onClick={() => {
