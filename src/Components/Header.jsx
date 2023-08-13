@@ -8,11 +8,10 @@ export default function Header() {
       <header>
         <Heading
           color="#66a8ba"
-          fontSize="50px"
+          fontSize="60px"
           textAlign="center"
-          m="10"
-          fontWeight="bold"
-          fontFamily="Bitter"
+          m="7"
+          fontFamily="Arvo"
         >
           Can I BRAD this?
         </Heading>

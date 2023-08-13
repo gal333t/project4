@@ -18,6 +18,8 @@ export default function BradItem() {
   const [count, setCount] = useState(0);
   const [userAnswer, setUserAnswer] = useState();
 
+  let banishBlue = "#66a8ba";
+
   const { username, setUsername, userScore, setUserScore } =
     useContext(SessionContext);
 
@@ -66,7 +68,7 @@ export default function BradItem() {
       {bradItems.map((brad) => {
         return (
           <div className="brad-item-div" key={brad.id}>
-            <Card align="center" bg="#66a8ba">
+            <Card align="center" bg={banishBlue}>
               <CardBody align="center">
                 <CardHeader color="white" textAlign="center" fontSize="30px">
                   {brad.name}
@@ -82,7 +84,7 @@ export default function BradItem() {
                 <ButtonGroup spacing="2">
                   <Button
                     variant="solid"
-                    color="#66a8ba"
+                    color={banishBlue}
                     onClick={() => {
                       determineBradStatus(brad.id, true);
                     }}
@@ -91,7 +93,7 @@ export default function BradItem() {
                   </Button>
                   <Button
                     variant="solid"
-                    color="#66a8ba"
+                    color={banishBlue}
                     onClick={() => {
                       determineBradStatus(brad.id, false);
                     }}

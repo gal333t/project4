@@ -1,4 +1,4 @@
-import { Card, CardBody, CardHeader, Link } from "@chakra-ui/react";
+import { Card, CardBody, CardHeader, Link, Divider } from "@chakra-ui/react";
 import { ExternalLinkIcon } from "@chakra-ui/icons";
 import { SessionContext } from "./SessionContext";
 import { useContext } from "react";
@@ -10,10 +10,12 @@ export default function About() {
     <div className="about-div">
       <Card
         align="center"
-        bg="#66a8ba"
+        // bg="#66a8ba"
+        variant="unstyled"
         m="10"
-        color="white"
+        color="#5995a5"
         fontWeight="semibold"
+        border="transparent"
       >
         <CardHeader fontSize="30px" p="7px">
           What is BRAD
@@ -27,7 +29,7 @@ export default function About() {
           please visit their website{" "}
           <Link href="https://banish.com.au" isExternal>
             here
-            <ExternalLinkIcon mx="7px" />
+            <ExternalLinkIcon mx="5px" />
           </Link>
         </CardBody>
         <CardHeader fontSize="30px" p="7px">
@@ -44,12 +46,13 @@ export default function About() {
           can you BRAD this?
         </CardBody>
         <CardBody textAlign="center" fontSize="20px" p="7px">
-          For more info on BRAD click{" "}
+          For more info on BRAD{" "}
           <Link href="https://banish.com.au/pages/recycling-program" isExternal>
-            here
-            <ExternalLinkIcon mx="7px" />
+            click here
+            <ExternalLinkIcon mx="5px" />
           </Link>
         </CardBody>
+        <Divider bg="blackAlpha.300" m="5px" w="60%" />
         <CardHeader fontSize="30px" p="7px">
           About Me
         </CardHeader>
@@ -63,14 +66,14 @@ export default function About() {
           that was centered on a topic I am passionate about. More on me{" "}
           <Link href="https://www.galitmoss.com/" isExternal>
             here
-            <ExternalLinkIcon mx="7px" />
+            <ExternalLinkIcon mx="5px" />
           </Link>
         </CardBody>
 
-        <CardHeader fontSize="26px" p="7px">
+        <CardHeader fontSize="26px" p="2px">
           Disclaimer
         </CardHeader>
-        <CardBody textAlign="center" fontSize="20px" p="7px">
+        <CardBody textAlign="center" fontSize="20px" p="5px">
           This website was not created by Banish, some of this info may not be
           up to date. I will do my best to monitor and update if anything
           changes, as well as adding more items into the game.
