@@ -2,13 +2,14 @@ import { useState, useEffect } from "react";
 import supabase from "../supabase";
 import {
   Card,
-  CardHeader,
   CardBody,
   CardFooter,
   Image,
   Button,
   ButtonGroup,
   Text,
+  Heading,
+  Stack,
 } from "@chakra-ui/react";
 import { SessionContext } from "./SessionContext";
 import { useContext } from "react";
@@ -17,8 +18,6 @@ export default function BradItem() {
   const [bradItems, setBradItems] = useState([]);
   const [count, setCount] = useState(0);
   const [userAnswer, setUserAnswer] = useState();
-
-  let banishBlue = "#66a8ba";
 
   const { username, setUsername, userScore, setUserScore } =
     useContext(SessionContext);
@@ -68,23 +67,72 @@ export default function BradItem() {
       {bradItems.map((brad) => {
         return (
           <div className="brad-item-div" key={brad.id}>
-            <Card align="center" bg={banishBlue}>
+            <Card
+              align="center"
+              w="md"
+              maxW="lg"
+              mb="10px"
+              sx={{
+                borderRadius: "5px",
+                border: "4px",
+                borderColor: "#66a8ba",
+              }}
+            >
               <CardBody align="center">
-                <CardHeader color="white" textAlign="center" fontSize="30px">
-                  {brad.name}
-                </CardHeader>
                 <Image
                   boxSize="250px"
                   src={brad.imgurl}
                   alt={brad.alt_text}
                   borderRadius="5px"
+                  mt="10px"
                 />
+                <Stack mt="12" spacing="2">
+                  <Heading
+                    className="banish-blue-text"
+                    textAlign="center"
+                    fontSize="40px"
+                  >
+                    {brad.name}
+                  </Heading>
+                </Stack>
               </CardBody>
-              <CardFooter>
-                <ButtonGroup spacing="2">
+              {userScore ? (
+                <Text
+                  p="3px"
+                  fontWeight="semibold"
+                  fontSize="18px"
+                  className="banish-blue-text"
+                  textAlign="center"
+                >
+                  Your overall score is: {userScore}
+                </Text>
+              ) : (
+                <Text
+                  p="3px"
+                  fontWeight="semibold"
+                  fontSize="18px"
+                  className="banish-blue-text"
+                  textAlign="center"
+                >
+                  Current score is: {count}
+                </Text>
+              )}
+              {userAnswer && (
+                <Text
+                  fontWeight="semibold"
+                  fontSize="18px"
+                  className="banish-blue-text"
+                  textAlign="center"
+                >
+                  Your guess was {userAnswer}
+                </Text>
+              )}
+              <CardFooter m="2">
+                <ButtonGroup spacing="5">
                   <Button
+                    size="lg"
                     variant="solid"
-                    color={banishBlue}
+                    bg="#66a8ba"
                     onClick={() => {
                       determineBradStatus(brad.id, true);
                     }}
@@ -92,8 +140,9 @@ export default function BradItem() {
                     YES
                   </Button>
                   <Button
+                    size="lg"
                     variant="solid"
-                    color={banishBlue}
+                    bg="#66a8ba"
                     onClick={() => {
                       determineBradStatus(brad.id, false);
                     }}
@@ -102,48 +151,6 @@ export default function BradItem() {
                   </Button>
                 </ButtonGroup>
               </CardFooter>
-              <CardBody>
-                {userAnswer && (
-                  <Text
-                    fontWeight="semibold"
-                    fontSize="18px"
-                    color="white"
-                    textAlign="center"
-                  >
-                    Your guess was {userAnswer}
-                  </Text>
-                )}
-                {userScore ? (
-                  <Text
-                    p="3px"
-                    fontWeight="semibold"
-                    fontSize="18px"
-                    color="white"
-                    textAlign="center"
-                  >
-                    Your overall score is: {userScore}
-                  </Text>
-                ) : (
-                  <Text
-                    p="3px"
-                    fontWeight="semibold"
-                    fontSize="18px"
-                    color="white"
-                    textAlign="center"
-                  >
-                    Current score is: {count}
-                  </Text>
-                )}
-                {/* <Text
-                  p="3px"
-                  fontWeight="semibold"
-                  fontSize="18px"
-                  color="white"
-                  textAlign="center"
-                >
-                  Current score is: {count}
-                </Text> */}
-              </CardBody>
             </Card>
           </div>
         );

@@ -6,6 +6,10 @@ header {
   margin: 40px;
 }
 
+.banish-blue-bg {
+  background-color: #66a8ba;
+}
+
 .button {
   margin: 5px;
 }
