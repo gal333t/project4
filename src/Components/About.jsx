@@ -64,15 +64,6 @@ export default function About() {
             <ExternalLinkIcon mx="5px" />
           </Link>
         </CardBody>
-
-        <CardHeader fontSize="26px" p="2px">
-          Disclaimer
-        </CardHeader>
-        <CardBody textAlign="center" fontSize="20px" p="5px">
-          This website was not created by Banish, some of this info may not be
-          up to date. I will do my best to monitor and update if anything
-          changes, as well as adding more items into the game.
-        </CardBody>
       </Card>
     </div>
   );

@@ -1,13 +1,12 @@
-import "./App.css";
-import { useState, useEffect } from "react";
-import supabase from "./supabase";
-import Homescreen from "./Components/Homescreen";
-import Header from "./Components/Header";
-import Login from "./Components/Login";
 import { Routes, Route } from "react-router-dom";
+import "./App.css";
+import SessionContextComponent from "./Components/SessionContext";
+import Header from "./Components/Header";
+import Homescreen from "./Components/Homescreen";
+import Login from "./Components/Login";
 import About from "./Components/About";
 import BradItem from "./Components/BradItem";
-import SessionContextComponent from "./Components/SessionContext";
+import Footer from "./Components/Footer";
 
 export default function App() {
   return (
@@ -21,6 +20,7 @@ export default function App() {
             <Route path="/about" element={<About />} />
             <Route path="/play" element={<BradItem />} />
           </Routes>
+          <Footer />
         </>
       </SessionContextComponent>
     </>

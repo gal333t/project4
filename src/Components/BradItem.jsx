@@ -66,93 +66,100 @@ export default function BradItem() {
     <>
       {bradItems.map((brad) => {
         return (
-          <div className="brad-item-div" key={brad.id}>
-            <Card
-              align="center"
-              w="md"
-              maxW="lg"
-              mb="10px"
-              sx={{
-                borderRadius: "5px",
-                border: "4px",
-                borderColor: "#66a8ba",
-              }}
-            >
-              <CardBody align="center">
-                <Image
-                  boxSize="250px"
-                  src={brad.imgurl}
-                  alt={brad.alt_text}
-                  borderRadius="5px"
-                  mt="10px"
-                />
-                <Stack mt="12" spacing="2">
-                  <Heading
+          <>
+            <div className="brad-item-div" key={brad.id}>
+              <Card
+                align="center"
+                w="md"
+                maxW="lg"
+                mb="10px"
+                sx={{
+                  borderRadius: "5px",
+                  border: "4px",
+                  borderColor: "#66a8ba",
+                }}
+              >
+                <CardBody align="center">
+                  <Image
+                    boxSize="250px"
+                    src={brad.imgurl}
+                    alt={brad.alt_text}
+                    borderRadius="5px"
+                    mt="10px"
+                  />
+                  <Stack mt="12" spacing="2">
+                    <Heading
+                      className="banish-blue-text"
+                      textAlign="center"
+                      fontSize="40px"
+                    >
+                      {brad.name}
+                    </Heading>
+                  </Stack>
+                </CardBody>
+                {userScore ? (
+                  <Text
+                    p="3px"
+                    fontWeight="semibold"
+                    fontSize="18px"
                     className="banish-blue-text"
                     textAlign="center"
-                    fontSize="40px"
                   >
-                    {brad.name}
-                  </Heading>
-                </Stack>
-              </CardBody>
-              {userScore ? (
-                <Text
-                  p="3px"
-                  fontWeight="semibold"
-                  fontSize="18px"
-                  className="banish-blue-text"
-                  textAlign="center"
-                >
-                  Your overall score is: {userScore}
-                </Text>
-              ) : (
-                <Text
-                  p="3px"
-                  fontWeight="semibold"
-                  fontSize="18px"
-                  className="banish-blue-text"
-                  textAlign="center"
-                >
-                  Current score is: {count}
-                </Text>
-              )}
-              {userAnswer && (
-                <Text
-                  fontWeight="semibold"
-                  fontSize="18px"
-                  className="banish-blue-text"
-                  textAlign="center"
-                >
-                  Your guess was {userAnswer}
-                </Text>
-              )}
-              <CardFooter m="2">
-                <ButtonGroup spacing="5">
-                  <Button
-                    size="lg"
-                    variant="solid"
-                    bg="#66a8ba"
-                    onClick={() => {
-                      determineBradStatus(brad.id, true);
-                    }}
+                    Your overall score is: {userScore}
+                  </Text>
+                ) : (
+                  <Text
+                    p="3px"
+                    fontWeight="semibold"
+                    fontSize="18px"
+                    className="banish-blue-text"
+                    textAlign="center"
                   >
-                    YES
-                  </Button>
-                  <Button
-                    size="lg"
-                    variant="solid"
-                    bg="#66a8ba"
-                    onClick={() => {
-                      determineBradStatus(brad.id, false);
-                    }}
+                    Current score is: {count}
+                  </Text>
+                )}
+                {userAnswer && (
+                  <Text
+                    fontWeight="semibold"
+                    fontSize="18px"
+                    className="banish-blue-text"
+                    textAlign="center"
                   >
-                    NO
-                  </Button>
-                </ButtonGroup>
-              </CardFooter>
-            </Card>
-          </div>
+                    Your guess was {userAnswer}
+                  </Text>
+                )}
+                <CardFooter m="2">
+                  <ButtonGroup spacing="5">
+                    <Button
+                      size="lg"
+                      variant="solid"
+                      bg="#66a8ba"
+                      onClick={() => {
+                        determineBradStatus(brad.id, true);
+                      }}
+                    >
+                      YES
+                    </Button>
+                    <Button
+                      size="lg"
+                      variant="solid"
+                      bg="#66a8ba"
+                      onClick={() => {
+                        determineBradStatus(brad.id, false);
+                      }}
+                    >
+                      NO
+                    </Button>
+                  </ButtonGroup>
+                </CardFooter>
+              </Card>
+            </div>
+            <Text fontSize="12px" textAlign="center" m="20px">
+              Disclaimer: This website was not created by Banish. As a result,
+              some of the information may not be up to date. Please refer to the
+              official Banish website if in doubt.
+            </Text>
+          </>
         );
       })}
     </>
