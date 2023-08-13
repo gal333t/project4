@@ -10,6 +10,7 @@ import {
   Text,
   Heading,
   Stack,
+  useColorModeValue,
 } from "@chakra-ui/react";
 import { SessionContext } from "./SessionContext";
 import { useContext } from "react";
@@ -21,6 +22,9 @@ export default function BradItem() {
 
   const { username, setUsername, userScore, setUserScore } =
     useContext(SessionContext);
+
+  const white = useColorModeValue("white", "white");
+  const black = useColorModeValue("black", "black");
 
   useEffect(() => {
     getBradItems();
@@ -72,8 +76,10 @@ export default function BradItem() {
                 w="md"
                 maxW="lg"
                 mb="10px"
+                bg={white}
+                color={black}
                 sx={{
-                  borderRadius: "5px",
+                  borderRadius: "25px",
                   border: "4px",
                   borderColor: "#66a8ba",
                 }}
@@ -133,6 +139,8 @@ export default function BradItem() {
                       size="lg"
                       variant="solid"
                       bg="#66a8ba"
+                      color={white}
+                      _hover={{ opacity: "80%" }}
                       onClick={() => {
                         determineBradStatus(brad.id, true);
                       }}
@@ -143,6 +151,8 @@ export default function BradItem() {
                       size="lg"
                       variant="solid"
                       bg="#66a8ba"
+                      color={white}
+                      _hover={{ opacity: "80%" }}
                       onClick={() => {
                         determineBradStatus(brad.id, false);
                       }}
