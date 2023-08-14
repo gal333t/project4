@@ -6,6 +6,7 @@ import {
   useColorMode,
   Text,
   IconButton,
+  Spacer,
 } from "@chakra-ui/react";
 import { MoonIcon, SunIcon } from "@chakra-ui/icons";
 import { useContext } from "react";
@@ -43,6 +44,21 @@ export default function Navbar() {
             Play
           </BreadcrumbLink>
         </BreadcrumbItem>
+        <Spacer />
+        {username && (
+          <>
+            <Text>Welcome, {username} </Text>
+            <Spacer />
+          </>
+        )}
+        <IconButton
+          bg="#66a8ba"
+          onClick={toggleColorMode}
+          _hover={{ opacity: "40%" }}
+          _active={{ opacity: "40%" }}
+        >
+          {colorMode === "light" ? <MoonIcon /> : <SunIcon />}
+        </IconButton>
         {!session ? (
           <BreadcrumbItem>
             <BreadcrumbLink as={NavLink} to="/login" m="5" fontWeight="bold">
@@ -70,15 +86,6 @@ export default function Navbar() {
             </BreadcrumbLink>
           </BreadcrumbItem>
         )}
-        <IconButton
-          bg="#66a8ba"
-          onClick={toggleColorMode}
-          _hover={{ opacity: "40%" }}
-          _active={{ opacity: "40%" }}
-        >
-          {colorMode === "light" ? <MoonIcon /> : <SunIcon />}
-        </IconButton>
-        {username && <Text>Welcome, {username} </Text>}
       </Breadcrumb>
     </>
   );
