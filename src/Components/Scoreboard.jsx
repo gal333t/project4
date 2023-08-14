@@ -31,7 +31,7 @@ export default function Scoreboard() {
     <>
       <div className="scoreboard-div" align="center">
         <Card
-          w="70%"
+          w="60%"
           h="80%"
           bg={white}
           color={black}
@@ -42,10 +42,11 @@ export default function Scoreboard() {
           }}
         >
           <CardHeader fontSize="40px">Scoreboard</CardHeader>
+          <Divider w="90%" margin="auto" />
           {allUsersScores.map((usersScore) => {
             return (
               <>
-                <Flex p="2" fontSize="25px">
+                <Flex px="14" py="4" fontSize="25px">
                   <Text>{usersScore.username}</Text>
                   <Spacer />
                   <Text>{usersScore.score}</Text>
@@ -53,7 +54,6 @@ export default function Scoreboard() {
               </>
             );
           })}
-          {/* needs to grab Users table, map and create username on left |divider| score */}
         </Card>
       </div>
     </>

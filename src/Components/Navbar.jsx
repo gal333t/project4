@@ -28,6 +28,7 @@ export default function Navbar() {
         borderColor="transparent"
         borderRadius="10px"
         color="white"
+        px="10"
       >
         <BreadcrumbItem>
           <BreadcrumbLink as={NavLink} to="/" m="5" fontWeight="bold">
