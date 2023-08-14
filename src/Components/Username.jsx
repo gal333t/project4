@@ -5,7 +5,6 @@ import {
   Button,
   useToast,
   useColorModeValue,
-  cookieStorageManager,
 } from "@chakra-ui/react";
 import { SessionContext } from "./SessionContext";
 import { useContext } from "react";
@@ -13,7 +12,7 @@ import supabase from "../supabase";
 
 export default function Username() {
   const toast = useToast();
-  const { username, setUsername } = useContext(SessionContext);
+  const { username, setUsername, setUserScore } = useContext(SessionContext);
   const white = useColorModeValue("white", "white");
   const black = useColorModeValue("black", "black");
 
@@ -24,13 +23,14 @@ export default function Username() {
       .eq("username", username);
     console.log(data);
     if (data == "") {
-      await supabase.from("Users").insert({ username: username });
+      await supabase.from("Users").insert({ username: username, score: 0 });
       toast({
         description: "Your username has been created!",
         status: "success",
         duration: 2000,
         isClosable: true,
       });
+      setUserScore(0); // when creating a new user, set Score to 0 in SessionContext
     } else {
       toast({
         description: "Username already exists, please try a different one",
@@ -54,10 +54,13 @@ export default function Username() {
               _focus={{ bg: white, color: black }}
               _placeholder={{ color: "blackAlpha.400" }}
               _hover={{ bg: white, color: black }}
+              isRequired
               placeholder="Username"
               onChange={(e) => setUsername(e.target.value)}
             />
+            <br />
             <Button
+              className="button"
               color={"#66a8ba"}
               bg={white}
               _hover={{ opacity: "80%" }}
