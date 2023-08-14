@@ -20,7 +20,10 @@ export default function Scoreboard() {
   const black = useColorModeValue("black", "black");
 
   async function getScores() {
-    const { data } = await supabase.from("Users").select("username, score");
+    const { data } = await supabase
+      .from("Users")
+      .select("username, score")
+      .order("score", { ascending: false });
     setAllUsersScores(data);
   }
   useEffect(() => {
