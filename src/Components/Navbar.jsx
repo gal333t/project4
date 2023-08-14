@@ -4,7 +4,7 @@ import {
   BreadcrumbLink,
   useToast,
   useColorMode,
-  useColorModeValue,
+  Text,
   IconButton,
 } from "@chakra-ui/react";
 import { MoonIcon, SunIcon } from "@chakra-ui/icons";
@@ -15,7 +15,7 @@ import { SessionContext } from "./SessionContext";
 
 export default function Navbar() {
   const toast = useToast();
-  const { session } = useContext(SessionContext);
+  const { session, username } = useContext(SessionContext);
   const { colorMode, toggleColorMode } = useColorMode();
 
   return (
@@ -33,7 +33,6 @@ export default function Navbar() {
             Home
           </BreadcrumbLink>
         </BreadcrumbItem>
-
         <BreadcrumbItem>
           <BreadcrumbLink as={NavLink} to="/about" m="5" fontWeight="bold">
             About
@@ -44,7 +43,6 @@ export default function Navbar() {
             Play
           </BreadcrumbLink>
         </BreadcrumbItem>
-
         {!session ? (
           <BreadcrumbItem>
             <BreadcrumbLink as={NavLink} to="/login" m="5" fontWeight="bold">
@@ -80,6 +78,7 @@ export default function Navbar() {
         >
           {colorMode === "light" ? <MoonIcon /> : <SunIcon />}
         </IconButton>
+        {username && <Text>Welcome, {username} </Text>}
       </Breadcrumb>
     </>
   );

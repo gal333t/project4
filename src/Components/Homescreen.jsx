@@ -1,4 +1,5 @@
 import { Text, Box, Flex } from "@chakra-ui/react";
+import Username from "./Username";
 
 export default function Homescreen() {
   return (
@@ -18,6 +19,7 @@ export default function Homescreen() {
           Scoreboard under here in Scoreboard component eventually
         </Text>
       </Box>
+      <Username />
     </>
   );
 }

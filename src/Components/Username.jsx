@@ -1,11 +1,45 @@
-import { Card, CardBody, Input, Button, useToast } from "@chakra-ui/react";
-import { useState } from "react";
+import {
+  Card,
+  CardBody,
+  Input,
+  Button,
+  useToast,
+  useColorModeValue,
+  cookieStorageManager,
+} from "@chakra-ui/react";
 import { SessionContext } from "./SessionContext";
 import { useContext } from "react";
+import supabase from "../supabase";
 
 export default function Username() {
   const toast = useToast();
   const { username, setUsername } = useContext(SessionContext);
+  const white = useColorModeValue("white", "white");
+  const black = useColorModeValue("black", "black");
+
+  async function determineUserStatus() {
+    const { data } = await supabase
+      .from("Users")
+      .select("")
+      .eq("username", username);
+    console.log(data);
+    if (data == "") {
+      await supabase.from("Users").insert({ username: username });
+      toast({
+        description: "Your username has been created!",
+        status: "success",
+        duration: 2000,
+        isClosable: true,
+      });
+    } else {
+      toast({
+        description: "Username already exists, please try a different one",
+        status: "error",
+        duration: 3000,
+        isClosable: true,
+      });
+    }
+  }
 
   return (
     <>
@@ -14,33 +48,20 @@ export default function Username() {
           <CardBody>
             <Input
               variant="filled"
+              bg={white}
+              color={black}
               focusBorderColor="white"
-              _focus={{ bg: "#EDF2F7", color: "#66a8ba" }}
+              _focus={{ bg: white, color: black }}
+              _placeholder={{ color: "blackAlpha.400" }}
+              _hover={{ bg: white, color: black }}
               placeholder="Username"
               onChange={(e) => setUsername(e.target.value)}
             />
             <Button
-              className="button"
-              color="#66a8ba"
-              onClick={() => {
-                if (username == username) {
-                  toast({
-                    description:
-                      "Username already exists, please try a different one",
-                    status: "error",
-                    duration: 3000,
-                    isClosable: true,
-                  });
-                } else {
-                  toast({
-                    description: "Your username has been created!",
-                    status: "success",
-                    duration: 2000,
-                    isClosable: true,
-                  });
-                  console.log("redirect to a different page next");
-                }
-              }}
+              color={"#66a8ba"}
+              bg={white}
+              _hover={{ opacity: "80%" }}
+              onClick={() => determineUserStatus()}
             >
               Confirm
             </Button>
