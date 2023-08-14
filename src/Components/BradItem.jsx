@@ -62,11 +62,25 @@ export default function BradItem() {
       .select("username, score")
       .eq("username", username);
     setUserScore(data[0].score);
+    updateUserScore(username);
   }
 
   useEffect(() => {
     getUserScore(username);
   }, []);
+
+  async function updateUserScore(username) {
+    await supabase
+      .from("Users")
+      .update({ score: userScore })
+      .eq({ username: username });
+  }
+
+  // keep getting PATCH error trying to update table with the current score live
+
+  // useEffect(() => {
+  //   updateUserScore(username);
+  // }, [userScore]);
 
   return (
     <>

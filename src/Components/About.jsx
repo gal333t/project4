@@ -56,7 +56,7 @@ export default function About() {
             <ExternalLinkIcon mx="5px" />
           </Link>
         </CardBody>
-        <Divider bg="blackAlpha.300" m="5px" w="60%" />
+        <Divider bg={text} m="5px" w="60%" />
         <CardHeader fontSize="30px" p="7px">
           About Me
         </CardHeader>
