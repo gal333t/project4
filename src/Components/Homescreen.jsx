@@ -16,9 +16,8 @@ export default function Homescreen() {
             program.
           </Text>
         </Flex>
-      </Box>{" "}
-      <Scoreboard />
-      <Username />
+        <Scoreboard />
+      </Box>
     </>
   );
 }
