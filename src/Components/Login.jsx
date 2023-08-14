@@ -8,12 +8,14 @@ import {
   useToast,
   useColorModeValue,
 } from "@chakra-ui/react";
-import { Link } from "react-router-dom";
+import BradItem from "./BradItem.jsx";
 
 export default function Login() {
   const [email, setEmail] = useState("");
   const [magicCode, setMagicCode] = useState("");
   const [submitted, setSubmitted] = useState(false);
+
+  const isError = magicCode.length !== 6;
 
   const toast = useToast();
   const white = useColorModeValue("white", "white");
@@ -52,6 +54,7 @@ export default function Login() {
                 _placeholder={{ color: "blackAlpha.400" }}
                 _hover={{ bg: white, color: black }}
                 value={email}
+                isRequired
                 placeholder="Email"
                 onChange={(e) => {
                   setEmail(e.target.value);
@@ -103,8 +106,8 @@ export default function Login() {
                 _hover={{ bg: white, color: black }}
                 placeholder="Magic Code"
                 value={magicCode}
-                onChange={(e) => setMagicCode(e.target.value)}
                 isRequired
+                onChange={(e) => setMagicCode(e.target.value)}
               />
               <br />
               <Button
@@ -112,12 +115,17 @@ export default function Login() {
                 color={"#66a8ba"}
                 bg={white}
                 _hover={{ opacity: "80%" }}
-                as={Link}
-                to="/"
                 onClick={() => {
                   if (magicCode.length <= 0) {
                     toast({
                       description: "Magic Code cannot be blank",
+                      status: "error",
+                      duration: 3000,
+                      isClosable: true,
+                    });
+                  } else if (magicCode.length !== 6) {
+                    toast({
+                      description: "Magic Code must be 6 numbers",
                       status: "error",
                       duration: 3000,
                       isClosable: true,
@@ -128,7 +136,6 @@ export default function Login() {
                       email,
                       token: magicCode,
                     });
-                    console.log("Logged in successfully");
                   }
                 }}
               >
