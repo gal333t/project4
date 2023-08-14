@@ -7,6 +7,7 @@ const SessionContextComponent = ({ children }) => {
   const [session, setSession] = useState(null);
   const [username, setUsername] = useState(null);
   const [userScore, setUserScore] = useState(0); // how to set this up so it doesn't run turnery statement for text on screen..
+  const [allUsersScores, setAllUsersScores] = useState([]);
 
   useEffect(() => {
     supabase.auth.getSession().then(({ data: { session } }) => {
@@ -29,7 +30,15 @@ const SessionContextComponent = ({ children }) => {
 
   return (
     <SessionContext.Provider
-      value={{ session, username, setUsername, userScore, setUserScore }}
+      value={{
+        session,
+        username,
+        setUsername,
+        userScore,
+        setUserScore,
+        allUsersScores,
+        setAllUsersScores,
+      }}
     >
       {children}
     </SessionContext.Provider>
