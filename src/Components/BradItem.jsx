@@ -20,8 +20,7 @@ export default function BradItem() {
   const [count, setCount] = useState(0);
   const [userAnswer, setUserAnswer] = useState();
 
-  const { username, setUsername, userScore, setUserScore } =
-    useContext(SessionContext);
+  const { username, userScore, setUserScore } = useContext(SessionContext);
 
   const white = useColorModeValue("white", "white");
   const black = useColorModeValue("black", "black");
@@ -60,10 +59,14 @@ export default function BradItem() {
   async function getUserScore(username) {
     const { data } = await supabase
       .from("Users")
-      .select("username")
+      .select("username, score")
       .eq("username", username);
-    console.log(data);
+    setUserScore(data[0].score);
   }
+
+  useEffect(() => {
+    getUserScore(username);
+  }, []);
 
   return (
     <>
