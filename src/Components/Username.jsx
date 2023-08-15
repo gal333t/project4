@@ -31,7 +31,7 @@ export default function Username() {
     if (data == "") {
       await supabase
         .from("Users")
-        .insert({ email, username: username, score: 0 });
+        .insert({ email: userEmail, username: username, score: 0 });
       toast({
         description: "Your username has been created!",
         status: "success",

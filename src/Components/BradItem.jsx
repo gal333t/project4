@@ -20,8 +20,7 @@ export default function BradItem() {
   const [count, setCount] = useState(0);
   const [userAnswer, setUserAnswer] = useState();
 
-  const { username, userScore, setUserScore, session } =
-    useContext(SessionContext);
+  const { username, userScore, setUserScore } = useContext(SessionContext);
 
   const white = useColorModeValue("white", "white");
   const black = useColorModeValue("black", "black");
