@@ -30,26 +30,16 @@ export default function Login() {
       .from("Users")
       .select("email, score")
       .eq("email", emailInput);
-
     if (data.length !== 0) {
-      console.log("email matches one with account already");
       setUsername(data[0].username);
       setUserScore(data[0].score);
+      navigate("/");
     } else {
       setUserEmail(email);
       console.log("new users email is:");
       console.log(email);
       navigate("/username");
     }
-  }
-
-  async function dertermineUsername() {
-    // to run once MagicCode is Successful
-    // add email input from { data }
-    // probably can reuse the above function and replace with one that runs at Magic Code
-    // if username already exists
-    // navigate("/")
-    // else { navigate("/username")} => setup navigate("/") in Username
   }
 
   return (

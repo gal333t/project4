@@ -38,7 +38,8 @@ export default function Username() {
         duration: 2000,
         isClosable: true,
       });
-      // username is changed when input is being typed dynamically, will this cause an issue with the NavBar displaying "Welcome, username"
+      setUsername(username);
+      console.log(username);
       setUserScore(0);
       navigate("/");
     } else {

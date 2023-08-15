@@ -25,26 +25,21 @@ export default function BradItem() {
   const white = useColorModeValue("white", "white");
   const black = useColorModeValue("black", "black");
 
-  useEffect(() => {
-    getBradItems();
-  }, []);
-
   async function getBradItems() {
     let { data } = await supabase.rpc("random_image");
     setBradItems(data);
   }
 
-  // before this runs, username == null
-  // setup the Username component
-  // setUsername on login
+  useEffect(() => {
+    getBradItems();
+  }, []);
 
   async function determineBradStatus(itemID, status) {
     const { data } = await supabase
       .from("BRAD")
       .select("BRAD")
       .eq("id", itemID);
-    let datsbaseStatus = data[0].BRAD;
-    if (datsbaseStatus == status) {
+    if (data[0].BRAD == status) {
       if (username !== null) {
         setUserScore(userScore + 1);
         getBradItems();
@@ -60,27 +55,29 @@ export default function BradItem() {
     }
   }
 
-  async function getUserScore(username) {
-    const { data } = await supabase
-      .from("Users")
-      .select("username, score")
-      .eq("username", username);
-    console.log(data);
-    // console.log(username);
-    // console.log(session);
-    // setUserScore(data[0].score);
-    // updateUserScore(username);
-  }
+  // don't think I need this as initial score is always 0 and will update in determineBradStatus function anyway..
+  // async function getUserScore(username) {
+  //   const { data } = await supabase
+  //     .from("Users")
+  //     .select("username, score")
+  //     .eq("username", username);
+  //   setUserScore(data[0].score);
+  // }
 
-  useEffect(() => {
-    getUserScore(username);
-  }, []);
+  // useEffect(() => {
+  //   getUserScore(username);
+  // }, []);
 
   async function updateUserScore(username) {
-    await supabase
+    const { data } = await supabase
       .from("Users")
       .update({ score: userScore })
-      .eq({ username: username });
+      .eq("username", username)
+      .select();
+    // console.log(error);
+    console.log(data); // nothing is passing in here, coming through as NULL
+    // console.log(username); // works fine
+    // console.log(userScore); // works fine
   }
 
   useEffect(() => {
