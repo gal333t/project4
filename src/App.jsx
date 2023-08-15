@@ -7,6 +7,7 @@ import Login from "./Components/Login";
 import About from "./Components/About";
 import BradItem from "./Components/BradItem";
 import Footer from "./Components/Footer";
+import Username from "./Components/Username";
 
 export default function App() {
   return (
@@ -19,6 +20,7 @@ export default function App() {
             <Route path="/login" element={<Login />} />
             <Route path="/about" element={<About />} />
             <Route path="/play" element={<BradItem />} />
+            <Route path="/username" element={<Username />} />
           </Routes>
           <Footer />
         </>

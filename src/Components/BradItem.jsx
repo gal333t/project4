@@ -20,7 +20,8 @@ export default function BradItem() {
   const [count, setCount] = useState(0);
   const [userAnswer, setUserAnswer] = useState();
 
-  const { username, userScore, setUserScore } = useContext(SessionContext);
+  const { username, userScore, setUserScore, session } =
+    useContext(SessionContext);
 
   const white = useColorModeValue("white", "white");
   const black = useColorModeValue("black", "black");
@@ -33,6 +34,10 @@ export default function BradItem() {
     let { data } = await supabase.rpc("random_image");
     setBradItems(data);
   }
+
+  // before this runs, username == null
+  // setup the Username component
+  // setUsername on login
 
   async function determineBradStatus(itemID, status) {
     const { data } = await supabase
@@ -61,8 +66,11 @@ export default function BradItem() {
       .from("Users")
       .select("username, score")
       .eq("username", username);
-    setUserScore(data[0].score);
-    updateUserScore(username);
+    console.log(data);
+    // console.log(username);
+    // console.log(session);
+    // setUserScore(data[0].score);
+    // updateUserScore(username);
   }
 
   useEffect(() => {
@@ -76,11 +84,9 @@ export default function BradItem() {
       .eq({ username: username });
   }
 
-  // keep getting PATCH error trying to update table with the current score live
-
-  // useEffect(() => {
-  //   updateUserScore(username);
-  // }, [userScore]);
+  useEffect(() => {
+    updateUserScore(username);
+  }, [userScore]);
 
   return (
     <>
