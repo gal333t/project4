@@ -69,12 +69,12 @@ export default function BradItem() {
   // }, []);
 
   async function updateUserScore(username) {
-    const { data } = await supabase
+    const { data, error } = await supabase
       .from("Users")
       .update({ score: userScore })
       .eq("username", username)
       .select();
-    // console.log(error);
+    console.log(error);
     console.log(data); // nothing is passing in here, coming through as NULL
     // console.log(username); // works fine
     // console.log(userScore); // works fine
