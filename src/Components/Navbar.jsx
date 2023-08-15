@@ -46,12 +46,12 @@ export default function Navbar() {
           </BreadcrumbLink>
         </BreadcrumbItem>
         <Spacer />
-        {username && (
+        {/* {username && (
           <>
             <Text>Welcome, {username} </Text>
             <Spacer />
           </>
-        )}
+        )} */}
         <IconButton
           bg="#66a8ba"
           onClick={toggleColorMode}
