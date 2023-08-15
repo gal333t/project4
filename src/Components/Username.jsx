@@ -5,14 +5,19 @@ import {
   Button,
   useToast,
   useColorModeValue,
+  CardHeader,
 } from "@chakra-ui/react";
 import { SessionContext } from "./SessionContext";
 import { useContext } from "react";
 import supabase from "../supabase";
+import { useNavigate } from "react-router-dom";
 
 export default function Username() {
   const toast = useToast();
+  const navigate = useNavigate();
+
   const { username, setUsername, setUserScore } = useContext(SessionContext);
+
   const white = useColorModeValue("white", "white");
   const black = useColorModeValue("black", "black");
 
@@ -30,7 +35,9 @@ export default function Username() {
         duration: 2000,
         isClosable: true,
       });
-      setUserScore(0); // when creating a new user, set Score to 0 in SessionContext
+      // username is changed when input is being typed dynamically, will this cause an issue with the NavBar displaying "Welcome, username"
+      setUserScore(0);
+      navigate("/");
     } else {
       toast({
         description: "Username already exists, please try a different one",
@@ -43,9 +50,10 @@ export default function Username() {
 
   return (
     <>
-      <div className="login-div">
+      <div className="username-div">
         <Card align="center" bg="#66a8ba">
           <CardBody>
+            <CardHeader fontSize="30px">Set up your Username:</CardHeader>
             <Input
               variant="filled"
               bg={white}
