@@ -15,7 +15,8 @@ export default function Login() {
   const [email, setEmail] = useState("");
   const [magicCode, setMagicCode] = useState("");
   const [submitted, setSubmitted] = useState(false);
-  const { setUsername, setUserScore } = useContext(SessionContext);
+  const { setUsername, setUserScore, setUserEmail } =
+    useContext(SessionContext);
 
   const navigate = useNavigate();
   const toast = useToast();
@@ -24,12 +25,6 @@ export default function Login() {
   const black = useColorModeValue("black", "black");
 
   async function determineUser(emailInput) {
-    // need to change method to not error if email doesn't exist
-
-    // emailInput = "email address"
-    // determine if user exists first
-    // if email does not already exist =>
-
     // if the below is NULL then user does not already exist, else user does exist
     const { data } = await supabase
       .from("Users")
@@ -41,13 +36,10 @@ export default function Login() {
       setUsername(data[0].username);
       setUserScore(data[0].score);
     } else {
-      // not working to add new User to table Users.. trying const {data} to match docs
-      const { data } = await supabase
-        .from("Users")
-        .insert({ email: emailInput });
-      console.log(data);
+      setUserEmail(email);
+      console.log("new users email is:");
+      console.log(email);
       navigate("/username");
-      console.log("user does not exist, need to create new user in table here");
     }
   }
 

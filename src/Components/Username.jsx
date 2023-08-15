@@ -16,7 +16,8 @@ export default function Username() {
   const toast = useToast();
   const navigate = useNavigate();
 
-  const { username, setUsername, setUserScore } = useContext(SessionContext);
+  const { username, setUsername, setUserScore, userEmail } =
+    useContext(SessionContext);
 
   const white = useColorModeValue("white", "white");
   const black = useColorModeValue("black", "black");
@@ -28,7 +29,9 @@ export default function Username() {
       .eq("username", username);
     console.log(data);
     if (data == "") {
-      await supabase.from("Users").insert({ username: username, score: 0 });
+      await supabase
+        .from("Users")
+        .insert({ email, username: username, score: 0 });
       toast({
         description: "Your username has been created!",
         status: "success",
