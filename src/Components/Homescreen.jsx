@@ -26,9 +26,6 @@ export default function Homescreen() {
               rounded="10px"
             />
           </Box>
-          {/* <Text fontSize="40px" color={text}>
-              https://i.ibb.co/mtrDY4T/BRAD.webp
-            </Text> */}
           <Text fontSize="25px" color={text}>
             BRAD is a recycling program started by{" "}
             <a href="https://banish.com.au/" target="_blank" className="link">

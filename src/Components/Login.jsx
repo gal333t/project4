@@ -28,16 +28,18 @@ export default function Login() {
     // if the below is NULL then user does not already exist, else user does exist
     const { data } = await supabase
       .from("Users")
-      .select("email, score")
+      .select("email, score, username")
       .eq("email", emailInput);
     if (data.length !== 0) {
+      console.log("Users username is set up on login as:");
+      console.log(data[0].username);
+      console.log(email);
       setUsername(data[0].username);
+      setUserEmail(email);
       setUserScore(data[0].score);
       navigate("/");
     } else {
       setUserEmail(email);
-      console.log("new users email is:");
-      console.log(email);
       navigate("/username");
     }
   }

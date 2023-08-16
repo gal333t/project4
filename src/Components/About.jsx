@@ -100,6 +100,6 @@ export default function About() {
 // to decide if it can or can't be recycled by the BRAD program. Select
 // your choice by clicking either the 'yes' or 'no' buttons. If you're
 // right, you'll get 1 point! And if you're wrong, your score doesn't
-// change. After each guess, a new option will render for you to
+// change. If you're logged in, your score will be saved to the scoreboard. After each guess, another option will render for you to
 // decide, can you BRAD this?
 // </Text>
