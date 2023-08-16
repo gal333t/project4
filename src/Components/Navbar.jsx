@@ -47,6 +47,11 @@ export default function Navbar() {
             Play
           </BreadcrumbLink>
         </BreadcrumbItem>
+        <BreadcrumbItem>
+          <BreadcrumbLink as={NavLink} to="/scoreboard" m="5">
+            Scoreboard
+          </BreadcrumbLink>
+        </BreadcrumbItem>
         <Spacer />
         <IconButton
           bg="#015929a"

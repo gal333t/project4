@@ -8,6 +8,7 @@ import About from "./Components/About";
 import BradItem from "./Components/BradItem";
 import Footer from "./Components/Footer";
 import Username from "./Components/Username";
+import Scoreboard from "./Components/Scoreboard";
 
 export default function App() {
   return (
@@ -21,6 +22,7 @@ export default function App() {
             <Route path="/about" element={<About />} />
             <Route path="/play" element={<BradItem />} />
             <Route path="/username" element={<Username />} />
+            <Route path="/scoreboard" element={<Scoreboard />} />
           </Routes>
           <Footer />
         </>
