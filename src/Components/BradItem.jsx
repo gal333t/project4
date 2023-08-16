@@ -23,7 +23,7 @@ export default function BradItem() {
   const { username, userScore, setUserScore } = useContext(SessionContext);
 
   const white = useColorModeValue("white", "white");
-  const black = useColorModeValue("black", "black");
+  const darkGreen = useColorModeValue("#005929", "#005929");
 
   async function getBradItems() {
     let { data } = await supabase.rpc("random_image");
@@ -80,9 +80,9 @@ export default function BradItem() {
     // console.log(userScore); // works fine
   }
 
-  useEffect(() => {
-    updateUserScore(username);
-  }, [userScore]);
+  // useEffect(() => {
+  //   updateUserScore(username);
+  // }, [userScore]);
 
   return (
     <>
@@ -95,12 +95,12 @@ export default function BradItem() {
                 w="md"
                 maxW="lg"
                 mb="10px"
-                bg={white}
-                color={black}
+                bg="white"
+                color={darkGreen}
                 sx={{
                   borderRadius: "25px",
                   border: "4px",
-                  borderColor: "#66a8ba",
+                  borderColor: "#05AA6B",
                 }}
               >
                 <CardBody align="center">
@@ -157,8 +157,8 @@ export default function BradItem() {
                     <Button
                       size="lg"
                       variant="solid"
-                      bg="#66a8ba"
-                      color={white}
+                      bg="#005929"
+                      color="#fbb8fc"
                       _hover={{ opacity: "80%" }}
                       onClick={() => {
                         determineBradStatus(brad.id, true);
@@ -169,14 +169,26 @@ export default function BradItem() {
                     <Button
                       size="lg"
                       variant="solid"
-                      bg="#66a8ba"
-                      color={white}
+                      bg="#005929"
+                      color="#fbb8fc"
                       _hover={{ opacity: "80%" }}
                       onClick={() => {
                         determineBradStatus(brad.id, false);
                       }}
                     >
                       NO
+                    </Button>
+                    <Button
+                      size="lg"
+                      variant="solid"
+                      bg="#005929"
+                      color="#fbb8fc"
+                      _hover={{ opacity: "80%" }}
+                      onClick={() => {
+                        updateUserScore();
+                      }}
+                    >
+                      Set userScore
                     </Button>
                   </ButtonGroup>
                 </CardFooter>

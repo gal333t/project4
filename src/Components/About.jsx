@@ -11,7 +11,8 @@ import {
 import { ExternalLinkIcon } from "@chakra-ui/icons";
 
 export default function About() {
-  const text = useColorModeValue("#015929", "#00A96C");
+  const text = useColorModeValue("#005829", "#FBB8FC");
+  const header = useColorModeValue("#015931", "#00A96C");
 
   return (
     <div className="about-div">
@@ -31,7 +32,7 @@ export default function About() {
           w={{ base: "80%", md: "40%" }}
           align={["center", "center", "flex-start", "flex-start"]}
         >
-          <Text fontSize="30px" p="7px">
+          <Text fontSize="30px" p="7px" color={header} fontWeight="bold">
             What is BRAD?
           </Text>
           <Text fontSize="20px" p="7px">
@@ -52,8 +53,8 @@ export default function About() {
               <ExternalLinkIcon mx="5px" />
             </Link>
           </Text>
-          <Divider bg={text} m="5px" />
-          <Text fontSize="30px" p="7px">
+          <Divider m="5px" />
+          <Text fontSize="30px" p="7px" color={header} fontWeight="bold">
             About Me
           </Text>
           <Text fontSize="20px" p="7px">

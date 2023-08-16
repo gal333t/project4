@@ -23,26 +23,27 @@ export default function Navbar() {
     <>
       <Breadcrumb
         bg="#015929"
-        // opacity="50%"
         separator=""
         border="1px"
         borderColor="transparent"
         borderRadius="10px"
-        color="white"
+        color="#DAE062"
         px="10"
+        fontWeight="bold"
+        fontSize="20px"
       >
         <BreadcrumbItem>
-          <BreadcrumbLink as={NavLink} to="/" m="5" fontWeight="bold">
+          <BreadcrumbLink as={NavLink} to="/" m="5">
             Home
           </BreadcrumbLink>
         </BreadcrumbItem>
         <BreadcrumbItem>
-          <BreadcrumbLink as={NavLink} to="/about" m="5" fontWeight="bold">
+          <BreadcrumbLink as={NavLink} to="/about" m="5">
             About
           </BreadcrumbLink>
         </BreadcrumbItem>
         <BreadcrumbItem>
-          <BreadcrumbLink as={NavLink} to="/play" m="5" fontWeight="bold">
+          <BreadcrumbLink as={NavLink} to="/play" m="5">
             Play
           </BreadcrumbLink>
         </BreadcrumbItem>
@@ -59,7 +60,7 @@ export default function Navbar() {
         </IconButton>
         {!session ? (
           <BreadcrumbItem>
-            <BreadcrumbLink as={NavLink} to="/login" m="5" fontWeight="bold">
+            <BreadcrumbLink as={NavLink} to="/login" m="5">
               Login
             </BreadcrumbLink>
           </BreadcrumbItem>

@@ -55,9 +55,11 @@ export default function Username() {
   return (
     <>
       <div className="username-div">
-        <Card align="center" bg="#66a8ba">
+        <Card align="center" bg="#04A96A">
           <CardBody>
-            <CardHeader fontSize="30px">Set up your Username:</CardHeader>
+            <CardHeader fontSize="30px" fontWeight="bold" color="black">
+              Set up your Username:
+            </CardHeader>
             <Input
               variant="filled"
               bg={white}
@@ -73,8 +75,10 @@ export default function Username() {
             <br />
             <Button
               className="button"
-              color={"#66a8ba"}
-              bg={white}
+              color="#005929"
+              bg="#FBB8FC"
+              size="lg"
+              mt="10px"
               _hover={{ opacity: "80%" }}
               onClick={() => determineUserStatus()}
             >
