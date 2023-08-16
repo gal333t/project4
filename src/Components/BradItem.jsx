@@ -73,10 +73,10 @@ export default function BradItem() {
       .from("Users")
       .update({ score: userScore })
       .eq("username", username)
-      .select();
-    console.log(error);
+      .select("username, email");
+    // console.log(error);
     console.log(data); // nothing is passing in here, coming through as NULL
-    // console.log(username); // works fine
+    console.log(username); // works fine
     // console.log(userScore); // works fine
   }
 

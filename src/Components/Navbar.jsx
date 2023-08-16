@@ -16,13 +16,14 @@ import { SessionContext } from "./SessionContext";
 
 export default function Navbar() {
   const toast = useToast();
-  const { session, username } = useContext(SessionContext);
+  const { session } = useContext(SessionContext);
   const { colorMode, toggleColorMode } = useColorMode();
 
   return (
     <>
       <Breadcrumb
-        bg="#66a8ba"
+        bg="#015929"
+        // opacity="50%"
         separator=""
         border="1px"
         borderColor="transparent"
@@ -47,12 +48,14 @@ export default function Navbar() {
         </BreadcrumbItem>
         <Spacer />
         <IconButton
-          bg="#66a8ba"
+          bg="#015929a"
+          border="1px"
+          borderColor="white"
           onClick={toggleColorMode}
           _hover={{ opacity: "40%" }}
           _active={{ opacity: "40%" }}
         >
-          {colorMode === "light" ? <MoonIcon /> : <SunIcon />}
+          {colorMode === "light" ? <MoonIcon color="white" /> : <SunIcon />}
         </IconButton>
         {!session ? (
           <BreadcrumbItem>

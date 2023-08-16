@@ -11,7 +11,7 @@ import {
 import { ExternalLinkIcon } from "@chakra-ui/icons";
 
 export default function About() {
-  const text = useColorModeValue("#35606b", "#66a8ba");
+  const text = useColorModeValue("#015929", "#00A96C");
 
   return (
     <div className="about-div">
