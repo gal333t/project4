@@ -50,7 +50,6 @@ export default function BradItem() {
     if (data[0].BRAD == status) {
       if (username !== null) {
         setUserScore(userScore + 1);
-        console.log(username);
         getBradItems();
         setUserAnswer("correct 🎉");
       } else {
@@ -65,14 +64,11 @@ export default function BradItem() {
   }
 
   async function updateUserScore(username) {
-    console.log(username);
     const { data } = await supabase
       .from("Users")
       .update({ score: userScore })
       .eq("username", username)
       .select("score");
-    console.log(data); // nothing is passing in here, coming through as NULL
-    // console.log(userScore); // works fine
   }
 
   useEffect(() => {
