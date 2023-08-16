@@ -46,7 +46,7 @@ export default function Login() {
     <div className="login-div">
       {!submitted ? (
         <>
-          <Card align="center" bg="#04A96A">
+          <Card align="center" bg="#04A96A" p="10px">
             <CardBody>
               <Input
                 variant="filled"
@@ -68,6 +68,8 @@ export default function Login() {
                 className="button"
                 color="#005929"
                 bg="#FBB8FC"
+                mt="10px"
+                mb="0px"
                 _hover={{ opacity: "80%" }}
                 onClick={(e) => {
                   if (email.length <= 0) {
@@ -97,7 +99,7 @@ export default function Login() {
         </>
       ) : (
         <>
-          <Card align="center" bg="#04A96A">
+          <Card align="center" bg="#04A96A" p="10px">
             <CardBody>
               <Input
                 bg={white}
@@ -116,6 +118,8 @@ export default function Login() {
                 className="button"
                 color="#005929"
                 bg="#FBB8FC"
+                mt="10px"
+                mb="0px"
                 _hover={{ opacity: "80%" }}
                 onClick={async () => {
                   if (magicCode.length !== 6) {
