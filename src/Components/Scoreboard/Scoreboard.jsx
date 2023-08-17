@@ -1,6 +1,6 @@
-import { SessionContext } from "./SessionContext";
+import { SessionContext } from "../SessionContext";
 import { useContext } from "react";
-import supabase from "../supabase";
+import supabase from "../../supabase";
 import { Card, Text, CardHeader, Flex, Spacer } from "@chakra-ui/react";
 import { useEffect } from "react";
 

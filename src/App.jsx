@@ -8,7 +8,7 @@ import About from "./Components/About";
 import BradItem from "./Components/BradItem/BradItem";
 import Footer from "./Components/Footer";
 import Username from "./Components/Username/Username";
-import Scoreboard from "./Components/Scoreboard";
+import Scoreboard from "./Components/Scoreboard/Scoreboard";
 
 export default function App() {
   return (
