@@ -38,6 +38,7 @@ Login/sessions - set up with Supabase making it super streamlined
 
 ### What do I want to do with this project next?
 
+- Update my testing, I will get to this soon. Something I really struggled with and want to improve upon. Had a lot of issues with what I want to test so I'll revist learning it and come back. Definitely should have been working on this sooner than I did.
 - The feedback I keep getting, is that there's duplicates. First things first, I need to work that out so everyone stops telling me. The only downside is eventually you will run out of guesses, so maybe a workaround to start over when you do?
 - SMTP setup on Supabase to fix issues with how many Magic Codes can be sent to users logging in per hour
 - Mobile phone responsiveness, this is an area I continue to struggle with and I know Chakra has good support for doing this so more to learn here

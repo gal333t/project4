@@ -135,7 +135,7 @@ export default function Login() {
                     });
                     if (error) {
                       toast({
-                        description: error.message,
+                        description: "Invalid Magic Code",
                         status: "error",
                         duration: 3000,
                         isClosable: true,
