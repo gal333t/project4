@@ -83,6 +83,7 @@ export default function About() {
             boxSize="60%"
             rounded="10px"
             p="5px"
+            alt="A white tub full of medical blister packs in the top left spanning about half the image. A small blue tub full of colourful bread tags in the bottom right and above it another small tub with elastic bands. Displaying the sorting of BRAD items."
           />
         </Box>
       </Flex>

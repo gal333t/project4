@@ -23,6 +23,7 @@ export default function Homescreen() {
               src="https://i.ibb.co/mtrDY4T/BRAD.webp"
               boxSize="md"
               rounded="10px"
+              alt="A light blue square image, with colourful shapes inside. A dark green long oval reads BANISH in blue. A long yellow object reads RECYCLING in dark green. A pink bread tag shaped object has an '&' and a lighter green semi circle says DISPOSAL"
             />
           </Box>
           <Text fontSize="25px" color={text} ml="5">
