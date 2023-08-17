@@ -6,7 +6,7 @@ export const SessionContext = createContext([]);
 const SessionContextComponent = ({ children }) => {
   const [session, setSession] = useState(null);
   const [username, setUsername] = useState(null);
-  const [userScore, setUserScore] = useState(0); // how to set this up so it doesn't run turnery statement for text on screen..
+  const [userScore, setUserScore] = useState(0);
   const [allUsersScores, setAllUsersScores] = useState([]);
   const [userEmail, setUserEmail] = useState(null);
   useEffect(() => {

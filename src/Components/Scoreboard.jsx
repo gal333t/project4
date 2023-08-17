@@ -25,7 +25,6 @@ export default function Scoreboard() {
           <CardHeader fontSize="40px" color="#015929">
             Scoreboard
           </CardHeader>
-          {/* <Divider w="90%" margin="auto" /> */}
           {allUsersScores.map((usersScore) => {
             return (
               <>

@@ -6,7 +6,6 @@ import {
   Image,
   Stack,
 } from "@chakra-ui/react";
-import Scoreboard from "./Scoreboard";
 
 export default function Homescreen() {
   const text = useColorModeValue("#005829", "#4FA9BF");
@@ -35,7 +34,6 @@ export default function Homescreen() {
             be recycled by the program.
           </Text>
         </Flex>
-        <Scoreboard />
       </Box>
     </>
   );
