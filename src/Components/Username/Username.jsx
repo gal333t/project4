@@ -7,9 +7,9 @@ import {
   useColorModeValue,
   CardHeader,
 } from "@chakra-ui/react";
-import { SessionContext } from "./SessionContext";
+import { SessionContext } from "../SessionContext";
 import { useContext } from "react";
-import supabase from "../supabase";
+import supabase from "../../supabase";
 import { useNavigate } from "react-router-dom";
 
 export default function Username() {

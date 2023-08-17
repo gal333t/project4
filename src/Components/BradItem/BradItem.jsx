@@ -1,5 +1,5 @@
 import { useState, useEffect } from "react";
-import supabase from "../supabase";
+import supabase from "../../supabase";
 import {
   Card,
   CardBody,
@@ -21,7 +21,7 @@ import {
   useDisclosure,
 } from "@chakra-ui/react";
 import { InfoIcon } from "@chakra-ui/icons";
-import { SessionContext } from "./SessionContext";
+import { SessionContext } from "../SessionContext";
 import { useContext } from "react";
 
 export default function BradItem() {

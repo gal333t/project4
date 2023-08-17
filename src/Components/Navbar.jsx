@@ -4,7 +4,6 @@ import {
   BreadcrumbLink,
   useToast,
   useColorMode,
-  Text,
   IconButton,
   Spacer,
 } from "@chakra-ui/react";

@@ -1,5 +1,5 @@
 import { useState, useContext } from "react";
-import supabase from "../supabase.js";
+import supabase from "../../supabase.js";
 import {
   Card,
   CardBody,
@@ -8,7 +8,7 @@ import {
   useToast,
   useColorModeValue,
 } from "@chakra-ui/react";
-import { SessionContext } from "./SessionContext";
+import { SessionContext } from "../SessionContext";
 import { useNavigate } from "react-router-dom";
 
 export default function Login() {
