@@ -12,8 +12,8 @@ export default function Homescreen() {
 
   return (
     <>
-      <Box>
-        <Flex alignItems="center" justifyContent="space-between" p="16">
+      <Box p="4">
+        <Flex alignItems="center" justifyContent="space-between" p="4">
           <Box
             w={{ base: "80%", md: "60%", sm: "40%" }}
             mb={{ base: 12, md: 0 }}
@@ -25,7 +25,7 @@ export default function Homescreen() {
               rounded="10px"
             />
           </Box>
-          <Text fontSize="25px" color={text}>
+          <Text fontSize="25px" color={text} ml="5">
             BRAD is a recycling program started by{" "}
             <a href="https://banish.com.au/" target="_blank" className="link">
               Banish
