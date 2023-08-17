@@ -5,13 +5,16 @@ import SessionContextComponent from "../SessionContext";
 beforeEach(() => {
   fetch.resetMocks();
 });
-it("Should show username and score of one user", async () => {
+it("Should show username and score of 2 users in mockResponse", async () => {
   // TypeError: Cannot read properties of undefined (reading 'map')
   const mockResponse1 = [
     {
       username: "Galit",
       score: 5,
-      email: "test@test.com",
+    },
+    {
+      username: "Robert",
+      score: 2,
     },
   ];
   fetch.mockResponse(JSON.stringify(mockResponse1));
@@ -23,6 +26,7 @@ it("Should show username and score of one user", async () => {
   );
 
   expect(await screen.findByText("Galit")).toBeInTheDocument();
+  expect(await screen.findByText("5")).toBeInTheDocument();
+  expect(await screen.findByText("Robert")).toBeInTheDocument();
+  expect(await screen.findByText("2")).toBeInTheDocument();
 });
-
-// check score is in ascending order

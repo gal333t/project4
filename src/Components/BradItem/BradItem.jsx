@@ -138,11 +138,7 @@ export default function BradItem() {
                     mt="10px"
                   />
                   <Stack mt="12" spacing="2">
-                    <Heading
-                      className="banish-blue-text"
-                      textAlign="center"
-                      fontSize="40px"
-                    >
+                    <Heading textAlign="center" fontSize="40px">
                       {brad.name}
                     </Heading>
                   </Stack>
@@ -152,7 +148,6 @@ export default function BradItem() {
                     p="3px"
                     fontWeight="semibold"
                     fontSize="18px"
-                    className="banish-blue-text"
                     textAlign="center"
                   >
                     Your overall score is: {userScore}
@@ -162,7 +157,6 @@ export default function BradItem() {
                     p="3px"
                     fontWeight="semibold"
                     fontSize="18px"
-                    className="banish-blue-text"
                     textAlign="center"
                   >
                     Current score is: {count}
@@ -172,7 +166,6 @@ export default function BradItem() {
                   <Text
                     fontWeight="semibold"
                     fontSize="18px"
-                    className="banish-blue-text"
                     textAlign="center"
                   >
                     Your guess was {userAnswer}

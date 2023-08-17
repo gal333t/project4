@@ -15,6 +15,6 @@ it("Should show the input with placeholder 'Username' correctly on user sign up 
   );
   const input = screen.getByPlaceholderText("Username");
   await user.click(input);
-  await user.keyboard("Testing Username");
-  expect(input.value).equals("Testing Username");
+  await user.keyboard("Galit");
+  expect(input.value).equals("Galit");
 });

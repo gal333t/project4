@@ -16,7 +16,3 @@ it("Should show the input with placeholder 'Email' correctly on login page", asy
   await user.keyboard("test@testemail.com");
   expect(input.value).equals("test@testemail.com");
 });
-
-// check the toast outcomes
-
-// check outliers - error handling, 'incorrect' requests
