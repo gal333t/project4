@@ -23,17 +23,15 @@ it("Should show a brad item when page is loaded", async () => {
   expect(await screen.findByText("Toothpaste")).toBeInTheDocument();
 });
 
-// it("Should show if you are correct or not", async () => {
-//   fetch.mockResponse(JSON.stringify(mockResponse1));
-//   render(
-//     <SessionContextComponent>
-//       <BradItem />
-//     </SessionContextComponent>
-//   );
-
-//   const user = userEvent.setup();
-//   const button = await screen.findByRole("button", { name: "YES" });
-//   await user.click(button);
-
-//   expect(await screen.getByText("Correct")).toBeInTheDocument();
-// });
+it("Should show if you are correct or not", async () => {
+  fetch.mockResponse(JSON.stringify(mockResponse1));
+  render(
+    <SessionContextComponent>
+      <BradItem />
+    </SessionContextComponent>
+  );
+  const user = userEvent.setup();
+  const button = await screen.findByRole("button", { name: "YES" });
+  await user.click(button);
+  await screen.getByText("correct", { exact: false });
+});
