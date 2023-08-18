@@ -15,7 +15,7 @@ import { SessionContext } from "./SessionContext";
 
 export default function Navbar() {
   const toast = useToast();
-  const { session } = useContext(SessionContext);
+  const { session, setUsername, setUserScore } = useContext(SessionContext);
   const { colorMode, toggleColorMode } = useColorMode();
 
   return (
@@ -77,6 +77,8 @@ export default function Navbar() {
               fontWeight="bold"
               onClick={() => {
                 supabase.auth.signOut();
+                setUsername(null);
+                setUserScore(null);
                 toast({
                   description: "Successfully logged out",
                   status: "success",
