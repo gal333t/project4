@@ -11,7 +11,7 @@ import {
 } from "@chakra-ui/react";
 import { InfoIcon } from "@chakra-ui/icons";
 
-export default function HowTo() {
+export default function HowToPlay() {
   const { isOpen, onOpen, onClose } = useDisclosure();
   const darkGreen = useColorModeValue("#005929", "#005929");
 

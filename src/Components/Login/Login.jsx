@@ -10,6 +10,7 @@ import {
 } from "@chakra-ui/react";
 import { SessionContext } from "../SessionContext";
 import { useNavigate } from "react-router-dom";
+import HowToLogin from "./HowToLogin.jsx";
 
 export default function Login() {
   const [email, setEmail] = useState("");
@@ -94,6 +95,7 @@ export default function Login() {
               </Button>
             </CardBody>
           </Card>
+          <HowToLogin />
         </>
       ) : (
         <>

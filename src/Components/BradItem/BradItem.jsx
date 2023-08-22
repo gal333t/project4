@@ -14,7 +14,7 @@ import {
 } from "@chakra-ui/react";
 import { SessionContext } from "../SessionContext";
 import { useContext } from "react";
-import HowTo from "../HowTo";
+import HowToPlay from "./HowToPlay";
 
 export default function BradItem() {
   const [bradItems, setBradItems] = useState([]);
@@ -85,7 +85,7 @@ export default function BradItem() {
                 }}
               >
                 <CardBody align="center">
-                  <HowTo />
+                  <HowToPlay />
                   <Image
                     boxSize="250px"
                     src={brad.imgurl}
