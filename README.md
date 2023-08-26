@@ -12,7 +12,7 @@ BRAD stands for Banish Recycling And Disposal Program, started by Banish a compa
 
 Aimed at beginners, people new to the BRAD program, or anyone needing a refresher, it's a fun game where you have to select whether or not an item can be recycled by BRAD. When you login, your score will save on the scoreboard. While login is optional, I think it's a lot more fun to have it saved and try getting the highest score out of everyone!
 
-## You can play the game [here](https://project4-p2ro.onrender.com/)
+## You can play the game [here](https://canibradthis.site/)
 
 ![screenshot of the Play screen in dark mode](https://i.ibb.co/rF6QrvF/Play-screen-screenshot.png)
 
@@ -36,9 +36,18 @@ Scoreboard - for users who choose to login, your score will be saved and rendere
 
 Login/sessions - set up with Supabase making it super streamlined
 
+### Accessibility Features
+
+Contrast: originally the colour scheme was really different, but once learning the mininmum requirement, that all changed.
+
+Chakra UI: Chakra components are all equipped with a role where necessary
+Alt Text: in my table where the Brad Items are stored with images, as well as the other 2 images on the site, there is descriptive alt text available. While I am proud of what I've done for this, I am sure it is potentially not enough for some images.
+
+- need to work on tabbing across in in play it's really annoying, doesn't open any modal components either
+
 ### What do I want to do with this project next?
 
 - Update my testing, I will get to this soon. Something I really struggled with and want to improve upon. Had a lot of issues with what I want to test so I'll revist learning it and come back. Definitely should have been working on this sooner than I did.
-- The feedback I keep getting, is that there's duplicates. First things first, I need to work that out so everyone stops telling me. The only downside is eventually you will run out of guesses, so maybe a workaround to start over when you do?
+- The feedback I keep getting, is that there's duplicates. So I need to work that out so everyone stops telling me. The only downside is eventually you will run out of guesses, so maybe a workaround to start over when you do?
 - SMTP setup on Supabase to fix issues with how many Magic Codes can be sent to users logging in per hour
 - Mobile phone responsiveness, this is an area I continue to struggle with and I know Chakra has good support for doing this so more to learn here
