@@ -41,9 +41,10 @@ Login/sessions - set up with Supabase making it super streamlined
 Contrast: originally the colour scheme was really different, but once learning the mininmum requirement, that all changed.
 
 Chakra UI: Chakra components are all equipped with a role where necessary
+
 Alt Text: in my table where the Brad Items are stored with images, as well as the other 2 images on the site, there is descriptive alt text available. While I am proud of what I've done for this, I am sure it is potentially not enough for some images.
 
-- need to work on tabbing across in in play it's really annoying, doesn't open any modal components either
+- need to work on tabbing to navigate, doesn't open any modal components for info on how to play/login and process of playing isn't very smooth
 
 ### What do I want to do with this project next?
 
