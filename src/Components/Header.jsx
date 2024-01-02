@@ -8,6 +8,7 @@ export default function Header() {
     <>
       <header>
         <Heading
+          aria-level="1"
           color={header}
           fontSize="60px"
           textAlign="center"
